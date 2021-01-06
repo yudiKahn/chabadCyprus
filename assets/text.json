@@ -1,0 +1,32 @@
+{
+    "en":{
+        "links":["Home","Shabbat Meals","About","Donate","Gallery","More","Prayer Times","Kosher Food"],
+        "welcome": "WELCOME TO CHABAD OF CYPRUS",
+        "welcome_btn1":"Donate",
+        "welcome_btn2":"Contact",
+        "info_title":"Useful information for travelers",
+        "info":["Shabbat Meals","Contact Us","Kosher Food","Hotels","info"],
+        "shabbat-title":"SHABBAT MEALS CYPRUS",
+        "shabbat-subtitle":"When will you be joining us?",
+        "donate-title":"Donate",
+        "click-me":"Click Me",
+        "contact-title":"Contact",
+        "gallery-title":"Gallery",
+        "about-title":"About"
+    },
+    "he":{
+        "links":["בית","ארוחות שבת","אודות","תרום","גלריה","עוד","זמני תפילות","אוכל כשר"],
+        "welcome": "ברוכים הבאים לחב\"ד קפריסין",
+        "welcome_btn1":"תרום",
+        "welcome_btn2":"צור קשר",
+        "info_title":"מידע למטייל",
+        "info":["ארוחות שבת","צור קשר","אוכל כשר","מלונות","מידע"],
+        "shabbat-title":"ארוחות שבת",
+        "shabbat-subtitle":"? מתי תצטרפו אלינו",
+        "donate-title":"תרום",
+        "click-me":"לחץ כאן",
+        "contact-title":"צור קשר",
+        "gallery-title":"גלריה",
+        "about-title":"אודות"
+    }
+}

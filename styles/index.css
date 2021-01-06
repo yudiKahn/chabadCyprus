@@ -1,0 +1,351 @@
+:root{
+    --blue: #5bb2c7;
+    --bluetrans: #5bb1c78f;
+  }
+  html, body{
+    scroll-behavior: smooth;
+    font-family: 'font' !important;
+  }
+  @font-face {
+    font-family: 'font'; 
+    src: url('../assets/VarelaRound-Regular.ttf');
+  }
+  /*A*/
+  .admin-sidebar{
+    position: absolute; top: 0; left: 0;
+    height: 60px;
+    background-color: var(--blue);
+    transition: width 1s;
+  }
+  .admin-sidebar.false .nav-item{
+    display: none;
+  }
+  .admin-sidebar.true .nav-item{
+    display: inline;
+  }
+  .admin-sidebar.true{
+    width: 100%;
+  }
+  .admin-sidebar.false{
+    width: 60px;
+  }
+  .admin-sidebar .arrow{
+    position: relative;
+    max-width: 60px; height: 60px;
+    display: grid; place-content: center;
+  }
+  .admin-sidebar .col.row{
+    display: flex; align-items: center;
+    justify-content: flex-end;
+  }
+  /*B*/
+  .btn-blue{
+    border:1px solid var(--blue);
+    color: var(--blue);
+    border-radius: 20px;
+  }
+  .btn-blue:hover{
+    color: white;
+    background-color: var(--blue);
+  }
+  .btn-fill-blue{
+    background-color: var(--blue);
+    color: white;
+    border-radius: 20px;
+  }
+  .btn-fill-blue:hover{
+    color: white;
+    background-color: var(--bluetrans);
+  }
+  
+  .bg-img{
+    width: 100%;
+    height: 80vh;
+    background-image: url('../assets/bg.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .bg-img .h-100.w-100, .shabbat-head-img .h-100.w-100{
+    background-color: rgb(0, 0, 0, .5);
+    display: flex; align-items: center;
+  }
+  .bg-img .h-100.w-100 h1{
+    color: white;
+    width: 350px;
+    text-shadow: 0 2px 4px rgba(0,0,0,.8);
+    font-weight: 800;
+  }
+  /*C*/
+  .candles-img{
+    background-image: url('../assets/candles.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .c-p{ cursor: pointer;}
+  .contact{
+    background-color: var(--blue);
+    padding: 20px 10px;
+    color: white;
+  }
+  
+  /*F*/
+  .form-control.danger:focus{
+    box-shadow: 0 0 0 0.2rem #dc35462c;
+  }
+  .form-control.danger{
+    border: 2px solid #dc3546;
+    border-radius: 20px;
+  }
+  
+  /*G*/
+  .goto-top{
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    position:fixed;
+    bottom: 10px;
+    background-color: var(--blue);
+    display: grid; place-content: center;
+    color: white;
+    cursor: pointer;
+  }
+  
+  
+  /*N*/
+  .navbar-brand{
+    background-image: url('../assets/logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 80px;
+  }
+  .nav-link{
+    text-align: center;
+    padding: 10px;
+  }
+  .nav-link:hover{
+    color: var(--blue) !important;
+    font-weight: 500;
+    transform: translateY(-5%);
+    transition: all .1s;
+  }
+  .navbar{
+    border-bottom: 2px solid var(--blue);
+  }
+  .navbar-toggler {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    width: 3em;
+    border: none; outline: none !important;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+  }
+  .navbar-toggler:after, .navbar-toggler:before, .navbar-toggler span {
+    display: block;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    content: '';
+    margin: 7px 0;
+    height: 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    background-color: var(--blue);
+  }
+  
+  .navbar-toggler.white:after, .navbar-toggler.white:before, .navbar-toggler span.white{
+    background-color: white;
+  }
+  
+  .navbar-toggler.click:before {
+    transform: translateY(12px) rotate(135deg);
+    -webkit-transform: translateY(12px) rotate(135deg);
+    -moz-transform: translateY(12px) rotate(135deg);
+  }
+  .navbar-toggler.click span {
+    transform: scale(0);
+    -moz-transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  .navbar-toggler.click:after {
+    transform: translateY(-12px) rotate(-135deg);
+    -moz-transform: translateY(-12px) rotate(-135deg);
+    -webkit-transform: translateY(-12px) rotate(-135deg);
+  }
+  
+  .nav-col-1{
+    width: 100%;
+    display: grid;
+    place-content: center;
+  }
+  .nav-col-2{
+    display: none;
+  }
+  
+  .nav-btns{
+    position: absolute;
+    top: 5px; left: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width:100%;
+  }
+  
+  /*S*/
+  .shabbat-head-img{
+    width: 100%;
+    height: 150px;
+    /* https://images.squarespace-cdn.com/content/v1/5f18474e111f1c29da62258f/1597852695013-G6YZR8M48IM92IGTMP1V/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Friday+Night.jpg*/
+    background-image: url('https://i.pinimg.com/736x/c1/5c/ba/c15cbae66a8a930a1cb292aaf60bb815--triangle-art-simple-pattern.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+  }
+  .shabbat-sel{
+    box-shadow: 0px 0px 40px -10px rgba(168, 168, 168, 0.5);
+    width: 90%;
+    max-width: 700px;
+    margin-top: 40px;
+    padding:25px;
+    min-height: 200px;
+  }
+  .shabbat-time{
+    background-color: #f3f3f3;
+    width: 250px; height: 250px;
+    border-radius: 40px;
+  }
+  
+  .map{
+    width: 100%;
+    height: 400px;
+    background-color: gray;
+    overflow: hidden;
+  }
+  
+  footer{
+    padding: 10px 5px;
+    border-top: 3px solid var(--blue);
+  }
+  
+  .xx-body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .xx-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5vmin;
+    overflow: hidden;
+    transform: skew(5deg);
+    max-width: 800px;
+  }
+  .xx-card {
+    flex: 1;
+    transition: all 1s ease-in-out;
+    height: 75vmin;
+    min-height: 400px;
+    position: relative;
+  }
+  .xx-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 1s ease-in-out;
+    filter: grayscale(100);
+  }
+  .xx-card .xx-card__head {
+    color: white;
+    background: var(--blue);
+    padding: 0.5em;
+    transform: rotate(-90deg);
+    transform-origin: 0% 0%;
+    transition: all 0.5s ease-in-out;
+    min-width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 1em;
+    white-space: nowrap;
+  }
+  .xx-card:hover img {
+    filter: grayscale(0);
+  }
+  .xx-card:hover {
+    flex-grow: 10;
+  }
+  .xx-card:hover .xx-card__head {
+    text-align: center;
+    top: calc(100% - 2em);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 2em;
+    transform: rotate(0deg) skew(-5deg);
+  }  
+  
+  @media only screen and (max-width: 991px){
+    .nav-col-2, .nav-col-1{
+      display: block;
+      -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 50%;
+    }
+    .nav-col-2{
+      display: flex;
+      justify-content: flex-end;
+    }
+    .nav-btns{
+      position: relative;
+      display: inline;
+    }
+  }
+  
+  .gal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+  
+  .gal-grid-container {
+    columns: 5 200px;
+    column-gap: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .gal-grid-container div {
+    width: 150px;
+    margin: 0 1.5rem 1.5rem 0;
+    display: inline-block;
+    width: 100%;
+    border: solid 2px var(--blue);
+    padding: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    transition: all .25s ease-in-out;
+  }
+  
+  .gal-grid-container div img {
+    width: 100%;
+    border-radius: 5px;
+    transition: all .25s ease-in-out;
+  }  
