@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import text from "../assets/text.json";
 
-function About({lang}) {
+function About({state:{lang}}) {
 
     return (<Layout title="About">
         <div className="shabbat-head-img">

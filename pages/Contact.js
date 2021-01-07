@@ -2,7 +2,7 @@ import text from '../assets/text.json';
 import Layout from '../components/Layout';
 
 
-function Contact({lang}) {
+function Contact({state:{lang}}) {
     return (<Layout title="Contact">
     <div style={{minHeight:'90vh'}}>
         <div className="shabbat-head-img">

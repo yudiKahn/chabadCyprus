@@ -17,21 +17,21 @@ const AdminLoginJSX = ({email, password,onChange,onSubmit}) =>
 </div>);
 
 
-function index({user, setUser}) {
+function index({state:{admin}, dispatch}) {
     const [fields, setFields] = useState({ email:'', password:'' }); 
     const onFieldsChange = (e) => setFields({...fields, [e.target.id]: e.target.value});
     const onSubmit = (e) => {
         e.preventDefault();
         fetch('/api/admin', {method:'POST', body: JSON.stringify(fields) })
         .then(res=> res.ok ? res.json().then(data=>{
-            setUser({type: types.SET_ADMIN, payload: data.token})
-        }): setUser({type: types.CLEAR_ADMIN }) );
+            dispatch({type: types.SET_ADMIN, payload: data.token})
+        }): dispatch({type: types.CLEAR_ADMIN }) );
     }
 
-    return (<Layout>
+    return (<Layout title="Admin">
     {
-        user && user.admin ? (<div>
-            
+        admin ? (<div>
+            <h1>Welcome Admin</h1>
         </div>) : <AdminLoginJSX email={fields.email} password={fields.password} onChange={onFieldsChange} onSubmit={onSubmit}/>
     }
     </Layout>)

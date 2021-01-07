@@ -1,8 +1,8 @@
 import text from '../assets/text.json';
 import Layout from '../components/Layout';
 
-function Donate({lang}){
-    return (<Layout>
+function Donate({state:{lang}}){
+    return (<Layout title="Donate">
         <div style={{minHeight:'100vh'}}>
         <div className="shabbat-head-img">
             <div className="w-100 h-100">

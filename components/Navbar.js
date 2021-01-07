@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import text from '../assets/text.json';
+import { types } from '../pages/_app';
 
-export default function Navbar({lang,setLang}) {
+export default function Navbar({state:{lang},dispatch}) {
     const toggleClass = e => {
         let btn = e.nativeEvent.path.find(el=>Array.from(el.classList).indexOf('navbar-toggler')>-1);
         Array.from(btn.classList).indexOf('click') < 0 ? btn.classList+=' click' : btn.classList.remove('click');
@@ -13,7 +14,7 @@ export default function Navbar({lang,setLang}) {
             <div className="row mx-0 w-100 justify-content-between">
                 <div className="nav-col-1">
                     <Link href="/">
-                        <a className="navbar-brand"></a>
+                        <a className="navbar-brand"><img src="/logo.jpg" className="w-100 h-100"/></a>
                     </Link>
                 </div>
                 <div className="nav-col-2">
@@ -22,7 +23,7 @@ export default function Navbar({lang,setLang}) {
                     </button>
                 </div>
                 <div className="row w-100 collapse navbar-collapse justify-content-center" id="nav-coll">
-                    <ul className="navbar-nav" style={lang==='he'?{direction:'rtl'}:{}}>
+                    <ul className="navbar-nav" style={{direction:lang==='he'?'rtl':'ltr'}}>
                         <li className="nav-item active">
                             <Link href="/">
                                 <a className="nav-link">{text[lang].links[0]}</a>
@@ -63,8 +64,12 @@ export default function Navbar({lang,setLang}) {
                         <li className="nav-item">
                             <div className="nav-btns">
                                 <div className={`col ${lang==='he'?'text-right':''}`}>
-                                    <button className="btn btn-blue mx-1" onClick={()=>setLang('he')}>עברית</button>
-                                    <button className="btn btn-blue mx-1" onClick={()=>setLang('en')}>English</button>
+                                    <button className="btn btn-blue mx-1" onClick={()=>dispatch({type:types.SET_LANG,payload:'he'})}>
+                                        עברית
+                                    </button>
+                                    <button className="btn btn-blue mx-1" onClick={()=>dispatch({type:types.SET_LANG,payload:'en'})}>
+                                        English
+                                    </button>
                                 </div>
                                 <div className={`col ${lang==='he'?'':'text-right'}`}>
                                     <a href="https://www.facebook.com/chabadofnapa" target="_blank" rel="noreferrer">

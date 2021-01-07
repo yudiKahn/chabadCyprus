@@ -8,11 +8,13 @@
         "info":["Shabbat Meals","Contact Us","Kosher Food","Hotels","info"],
         "shabbat-title":"SHABBAT MEALS CYPRUS",
         "shabbat-subtitle":"When will you be joining us?",
+        "shabbat-form": ["Select shabbat","Friday night - €30 per guest","Shabbat day - €30 per guest","Email","Phone Number","Full name","Donation - in euro"],
         "donate-title":"Donate",
         "click-me":"Click Me",
         "contact-title":"Contact",
         "gallery-title":"Gallery",
-        "about-title":"About"
+        "about-title":"About",
+        "submit":"Submit"
     },
     "he":{
         "links":["בית","ארוחות שבת","אודות","תרום","גלריה","עוד","זמני תפילות","אוכל כשר"],
@@ -23,10 +25,12 @@
         "info":["ארוחות שבת","צור קשר","אוכל כשר","מלונות","מידע"],
         "shabbat-title":"ארוחות שבת",
         "shabbat-subtitle":"? מתי תצטרפו אלינו",
+        "shabbat-form": ["בחר שבת","שישי לילה - €30 לאורח","שבת בוקר - €30 לאורח","אימייל","מס' פלאפון","שם מלא","תרומה (ביורו)"],
         "donate-title":"תרום",
         "click-me":"לחץ כאן",
         "contact-title":"צור קשר",
         "gallery-title":"גלריה",
-        "about-title":"אודות"
+        "about-title":"אודות",
+        "submit":"אשר"
     }
 }

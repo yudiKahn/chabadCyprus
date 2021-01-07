@@ -2,7 +2,7 @@ import Link from 'next/link';
 import text from '../assets/text.json';
 import Layout from '../components/Layout';
 
-function Home({lang}) {
+function Home({state:{lang}}) {
     return (<Layout>
         <section className="bg-img">
             <div className="w-100 h-100 px-3" style={lang==='he'?{justifyContent:'flex-end'}:{}}>

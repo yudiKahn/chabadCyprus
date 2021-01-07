@@ -1,4 +1,3 @@
-// inside next.config.js
 module.exports = {
     env: {
       ROOT: __dirname,

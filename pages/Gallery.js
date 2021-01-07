@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Layout from '../components/Layout';
 import text from '../assets/text.json';
 
-function Gallery({lang, user, adminHeader}) {
+function Gallery({state:{lang, admin}, adminHeader}) {
     const [imgs, setImgs]  = useState([]);
     const [img, setImg] = useState('');
 
@@ -14,7 +14,7 @@ function Gallery({lang, user, adminHeader}) {
         getImgs.current();
     },[]);
 
-    return (<Layout>
+    return (<Layout title="Gallery">
     <div className="shabbat-head-img">
         <div className="w-100 h-100">
             <h1 className="text-white text-center w-100" style={{fontWeight:800}}>
@@ -23,7 +23,7 @@ function Gallery({lang, user, adminHeader}) {
         </div>
     </div>
     {
-        user.admin && <>
+        admin && <>
         <input type="file" accept="image/*" onChange={e=> setImg(e.target.files[0])}/>
         <button className="btn btn-blue" onClick={()=>{
             const reader = new FileReader();
@@ -40,7 +40,7 @@ function Gallery({lang, user, adminHeader}) {
             {
                 imgs.map((src,i)=><div key={i}>
                     <img className="gal-grid-item grid-item-1" src={src} alt='chabbad gallery'/>
-                    {user.admin && <p className="m-0 badge badge-danger c-p" onClick={()=>{
+                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>{
                         fetch('/api/gallery', {method:'delete',body:i,headers:adminHeader})
                         .then(res=> res.ok ? setTimeout(getImgs.current, 500) : console.log('err'));
                     }}>

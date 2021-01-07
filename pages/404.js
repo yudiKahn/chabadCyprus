@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Link from 'next/link';
 
-export default function Four0Four({lang}) {
+export default function Four0Four({state:{lang}}) {
     return (<Layout title="404">
         <div style={{minHeight:'90vh',display:'grid',placeContent:'center'}}>
             <h4>
