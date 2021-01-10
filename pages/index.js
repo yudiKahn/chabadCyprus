@@ -8,12 +8,15 @@ function Home({state:{lang}}) {
             <div className="w-100 h-100 px-3" style={lang==='he'?{justifyContent:'flex-end'}:{}}>
                 <span style={lang==='he'?{textAlign:'end'}:{}}>
                     <h1>{text[lang].welcome}</h1>
-                    <Link href="/Donate">
-                      <a className="btn btn-fill-blue mx-1">{text[lang].welcome_btn1}</a>
-                    </Link>
-                    <Link href="/Contact">
-                      <a className="btn btn-fill-blue mx-1">{text[lang].welcome_btn2}</a>
-                    </Link>
+                    <a className="btn btn-fill-blue mx-1" target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=+35796640980&text=Hello">
+                        <i className="fa fa-whatsapp"></i>
+                    </a>
+                    <a className="btn btn-fill-blue mx-1" target="_blank" rel="noreferrer" href="mailto:ayianapa@chabadcyprus.com">
+                        <i className="fa fa-envelope"></i>
+                    </a>
+                    <a className="btn btn-fill-blue mx-1" target="_blank" rel="noreferrer" href="tel:+35796640980">
+                        <i className="fa fa-phone"></i>
+                    </a>
                 </span>
             </div>
         </section>
@@ -59,8 +62,8 @@ function Home({state:{lang}}) {
                 <div className="row mx-0">
                     <i className="fa fa-4x fa-map-marker col-3"></i>
                     <span className="col-9">
-                        <h4 style={{fontSize:23, fontWeight:'bold'}}>Waiting for you at Chabad House</h4>
-                        <p style={{fontSize:13}}>Taborstraße 20A, 1020 Wien, Austria</p>
+                        <h4 style={{fontSize:23, fontWeight:'bold'}}>{text[lang]["info-row"].location[0]}</h4>
+                        <p style={{fontSize:13}}>{text[lang]["info-row"].location[1]}</p>
                     </span>
                 </div>
             </div>
@@ -68,8 +71,8 @@ function Home({state:{lang}}) {
                 <div className="row mx-0">
                     <i className="fa fa-4x fa-phone col-3"></i>
                     <span className="col-9">
-                        <h4 style={{fontSize:23, fontWeight:'bold'}}>We are available for any questions</h4>
-                        <p style={{fontSize:13}}>+43-676-83181-771</p>
+                        <h4 style={{fontSize:23, fontWeight:'bold'}}>{text[lang]["info-row"].phone[0]}</h4>
+                        <p style={{fontSize:13}}>{text[lang]["info-row"].phone[1]}</p>
                     </span>
                 </div>
             </div>
@@ -77,8 +80,8 @@ function Home({state:{lang}}) {
                 <div className="row mx-0">
                     <i className="fa fa-4x fa-clock-o col-3"></i>
                     <span className="col-9">
-                        <h4 style={{fontSize:23, fontWeight:'bold'}}>Our hours of operation</h4>
-                        <p style={{fontSize:13}}>Sunday through Thursday: 08:00-18:00 Friday: 08:00-14:30</p>
+                        <h4 style={{fontSize:23, fontWeight:'bold'}}>{text[lang]["info-row"].hours[0]}</h4>
+                        <p style={{fontSize:13}}>{text[lang]["info-row"].hours[1]}</p>
                     </span>
                 </div>
             </div>

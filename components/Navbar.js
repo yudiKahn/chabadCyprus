@@ -39,27 +39,14 @@ export default function Navbar({state:{lang},dispatch}) {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="/Donate">
-                                <a className="nav-link">{text[lang].links[3]}</a>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
                             <Link href="/Gallery">
                                 <a className="nav-link">{text[lang].links[4]}</a>
                             </Link>
                         </li>
-                        <li className="nav-item dropdown">
-                            <p className="nav-link dropdown-toggle m-0" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {text[lang].links[5]}
-                            </p>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <Link href="/">
-                                <a className="dropdown-item">{text[lang].links[6]}</a>
+                        <li className="nav-item">
+                            <Link href="/Donate">
+                                <a className="nav-link">{text[lang].links[3]}</a>
                             </Link>
-                            <Link href="/">
-                                <a className="dropdown-item">{text[lang].links[7]}</a>
-                            </Link>
-                            </div>
                         </li>
                         <li className="nav-item">
                             <div className="nav-btns">
@@ -75,10 +62,10 @@ export default function Navbar({state:{lang},dispatch}) {
                                     <a href="https://www.facebook.com/chabadofnapa" target="_blank" rel="noreferrer">
                                         <i className="btn btn-blue fa m-1 fa-facebook"></i>
                                     </a>
-                                    <a href="https://www.facebook.com/chabadofnapa" target="_blank" rel="noreferrer">
+                                    <a href="https://www.instagram.com/chabad_ayia_napa/" target="_blank" rel="noreferrer">
                                         <i className="btn btn-blue fa m-1 fa-instagram"></i>
                                     </a>
-                                    <a href="https://www.facebook.com/chabadofnapa" target="_blank" rel="noreferrer">
+                                    <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=+35796640980&text=Hello">
                                         <i className="btn btn-blue fa m-1 fa-whatsapp"></i>
                                     </a>
                                     <Link href="/Admin">

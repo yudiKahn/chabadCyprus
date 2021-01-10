@@ -3,18 +3,21 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Alerts from '../components/Alerts';
 import { useEffect, useReducer, useRef, useState } from 'react';
+import Spinner from '../components/Spinner';
 
 export const types = {
     SET_ADMIN:'SET_ADMIN',
     CLEAR_ADMIN: 'CLEAR_ADMIN',
     SET_ALERTS: 'SET_ALERTS',
     CLEAR_ALERTS: 'CLEAR_ALERTS',
-    SET_LANG: 'SET_LANG'
+    SET_LANG: 'SET_LANG',
+    SET_LOAD:'SET_LOAD'
 }
 const initState = {
     admin: null,
     alerts: [],
-    lang: 'he'
+    lang: 'he',
+    load: false
 }
 
 function App({ Component, props }) {
@@ -35,7 +38,8 @@ function App({ Component, props }) {
 
     return (<>
     <Navbar state={state} dispatch={dispatch}/>
-    <Alerts state={state}/>
+    <Alerts alerts={state.alerts} dispatch={dispatch}/>
+    <Spinner load={state.load}/>
     <Component {...props} state={state} dispatch={dispatch}
      adminHeader={{'x-Admin-Header':state.admin}}/>
     <Footer/>
@@ -55,10 +59,11 @@ function reducer(state, {type,payload}){
         case types.SET_LANG:
             return {...state, lang: payload};
         case types.SET_ALERTS:
-            setTimeout(()=> reducer(state, {type: types.CLEAR_ALERTS}), 4000);
             return {...state, alerts: payload};
         case types.CLEAR_ALERTS:
-            return {...state, alerts:[]};
+            return {...state, alerts: state.alerts.filter((v,i)=> i !== payload) };
+        case types.SET_LOAD:
+            return {...state, load: payload}
         default:
             return state;
     }

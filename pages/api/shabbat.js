@@ -6,11 +6,14 @@ function handler(req,res){
     const path = process.env.ROOT+'/assets/shabbat.json';
     switch(req.method){
         case 'GET':
-            adminMiddleware(req,res, ()=>{
-               return res.json({data:shabbatJson});
-            });
+            // adminMiddleware(req,res, ()=>{
+               return res.json({data: shabbatJson.data});
+            // });
         case 'POST':
             const {shabbat, night, day, email, phone, name, donation} = JSON.parse(req.body);
+            if(didUserAlreadyRegister(shabbat, email)){
+                return res.status(400).json({data: 'User already register'})
+            }
             if(shabbat && (Number(night)>0 || Number(day)>0) && email && phone && name && Number(donation) >= 0){
                 let newShabbat = shabbatJson;
                 newShabbat.data.push({shabbat, night, day, email, phone, name, donation});
@@ -24,3 +27,8 @@ function handler(req,res){
 }
 
 export default handler;
+
+function didUserAlreadyRegister(shabbat, email){
+    const res = shabbatJson.data.find((v)=> v.shabbat === shabbat && v.email === email);
+    return res;
+}

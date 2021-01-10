@@ -10,7 +10,7 @@ export default function Four0Four({state:{lang}}) {
             </h4>
             <Link href="/">
                 <a className="mt-3 text-center" style={{color:'var(--blue)'}}>
-                    {lang==='he'?'בוא נחזור הביתה':"LET'S GO HOME"}
+                    {lang==='he'?'בוא/י נחזור הביתה':"LET'S GO HOME"}
                 </a>
             </Link>
         </div>

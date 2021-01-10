@@ -11,33 +11,7 @@
     src: url('../assets/VarelaRound-Regular.ttf');
   }
   /*A*/
-  .admin-sidebar{
-    position: absolute; top: 0; left: 0;
-    height: 60px;
-    background-color: var(--blue);
-    transition: width 1s;
-  }
-  .admin-sidebar.false .nav-item{
-    display: none;
-  }
-  .admin-sidebar.true .nav-item{
-    display: inline;
-  }
-  .admin-sidebar.true{
-    width: 100%;
-  }
-  .admin-sidebar.false{
-    width: 60px;
-  }
-  .admin-sidebar .arrow{
-    position: relative;
-    max-width: 60px; height: 60px;
-    display: grid; place-content: center;
-  }
-  .admin-sidebar .col.row{
-    display: flex; align-items: center;
-    justify-content: flex-end;
-  }
+  
   /*B*/
   .btn-blue{
     border:1px solid var(--blue);
@@ -216,7 +190,15 @@
     width: 100%; height: 250px;
     border-radius: 40px;
   }
-  
+  /*T*/
+  th.resize{
+    position: relative;
+  }
+  th.resize .resize{
+    position: absolute; width: 3px; height: 100%;
+    top: 0; right: 0; cursor: col-resize;
+    background-color: var(--blue);
+  }
   .map{
     width: 100%;
     height: 400px;

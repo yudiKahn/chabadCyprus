@@ -14,7 +14,12 @@
         "contact-title":"Contact",
         "gallery-title":"Gallery",
         "about-title":"About",
-        "submit":"Submit"
+        "submit":"Submit",
+        "info-row":{ 
+            "location":["Waiting for you at Chabad House","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
+            "phone": ["We are available for any questions","+35-796-640980"],
+            "hours": ["Our hours of operation","Sunday through Thursday: 08:00-18:00 Friday: 08:00-14:30"]
+        }
     },
     "he":{
         "links":["בית","ארוחות שבת","אודות","תרום","גלריה","עוד","זמני תפילות","אוכל כשר"],
@@ -31,6 +36,11 @@
         "contact-title":"צור קשר",
         "gallery-title":"גלריה",
         "about-title":"אודות",
-        "submit":"אשר"
+        "submit":"אשר",
+        "info-row":{ 
+            "location":["מחכים לך בבית חב''ד","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
+            "phone": ["אנחנו פנויים לכל שאלה","+35-796-640980"],
+            "hours": ["שעות פעילות","ראשון עד חמישי :08:00-18:00, שישי :08:00-14:30"]
+        }
     }
 }

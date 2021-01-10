@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Layout from '../../components/Layout';
 import {types} from '../_app';
+import Link from 'next/link';
 
 const AdminLoginJSX = ({email, password,onChange,onSubmit}) => 
 (<div className="container" style={{display:'grid',placeContent:'center',height:'90vh'}}>
@@ -31,7 +32,18 @@ function index({state:{admin}, dispatch}) {
     return (<Layout title="Admin">
     {
         admin ? (<div>
-            <h1>Welcome Admin</h1>
+        <div className="shabbat-head-img">
+            <div className="w-100 h-100">
+                <h1 className="text-center text-white w-100" style={{fontWeight:800,fontSize:20}}>
+                   <Link href="/Admin/ShabbatMeals">
+                       <a className="text-white">Shabbat meals</a>
+                    </Link>&nbsp;/&nbsp;
+                    <Link href="/Admin/About">
+                       <a className="text-white">About</a>
+                    </Link>&nbsp;/&nbsp;...
+                </h1>
+            </div>
+        </div>
         </div>) : <AdminLoginJSX email={fields.email} password={fields.password} onChange={onFieldsChange} onSubmit={onSubmit}/>
     }
     </Layout>)

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import text from '../assets/text.json';
 import Layout from '../components/Layout';
+import { types } from './_app';
 const shabbatUrl = `https://www.hebcal.com/hebcal?v=1&cfg=json&year=now&month=${new Date().getMonth()+1}&ss=on&c=on&geo=city&city=CY-Nicosia&m=50&s=on`;
 
 
-export default function ShabbatMeals({state:{lang}}) {
+export default function ShabbatMeals({state:{lang}, dispatch}) {
     const [shabbats, setShabbats] = useState([]);
     const [fields, setFields] = useState({
         shabbat:'', night:0, day:0, email:'', phone:'', name:'', donation:0
@@ -18,7 +19,8 @@ export default function ShabbatMeals({state:{lang}}) {
     const onChange = (e) => {
         e.target.id === 'shabbat' && displayShabbatTime(e.target.value);
         /(day|night|donation)/.test(e.target.id) && Number(e.target.value) < 0 && (e.target.value=0); 
-        setFields({...fields, [e.target.id]: e.target.value})
+        /(day|night)/.test(e.target.id) && (e.target.value = Number(e.target.value).toFixed(0));
+        setFields({...fields, [e.target.id]: e.target.value});
     };
     const displayShabbatTime = (parasha) => {
         const obj = shabbats.map((o,i)=> o.title === parasha ? ({
@@ -33,8 +35,11 @@ export default function ShabbatMeals({state:{lang}}) {
         const {shabbat, night, day, email, phone, name} = fields;
         if(shabbat && (Number(night)>0 || Number(day)>0) && email && phone && name){
             fetch('/api/shabbat', {method:'POST', body:JSON.stringify(fields)})
+            .then(res=> res.ok ? 
+                dispatch({type:types.SET_ALERTS,payload:[{type:'success',msg:'Registration succeeded'}]}) : 
+                res.json().then(d=> dispatch({type:types.SET_ALERTS,payload:[{type:'secondary',msg:d.data}]})))
         } else {
-            console.log('fill all fields')
+            dispatch({type: types.SET_ALERTS, payload:[{type:'warning',msg:'Please fill all fields'}]});
         }
     }
 
