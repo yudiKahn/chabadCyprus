@@ -21,23 +21,25 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
 
     const uploadImgForAdmin = () => {    
         dispatch({type: types.SET_LOAD, payload: true});   
-        const fd = new FormData();
-        fd.append('img', img);
-        fetch('/api/gallery', {method:'POST',body:fd, headers:adminHeader })
-        .then(res=>{
-            if(res.ok){
-                getImgs.current();
-                dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image uploaded successfuly'}]});
-            } else {
-                dispatch({type: types.SET_LOAD, payload: false});
-                dispatch({type: types.SET_ALERTS, payload: [{type:'danger', msg:'An error has occurred'}]});
-            }
-        });
+        const reader = new FileReader();
+        reader.onload = function(){
+            fetch('/api/gallery', {method:'POST',body:reader.result, headers:adminHeader })
+            .then(res=>{
+                if(res.ok){
+                    getImgs.current();
+                    dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image uploaded successfuly'}]});
+                } else {
+                    dispatch({type: types.SET_LOAD, payload: false});
+                    dispatch({type: types.SET_ALERTS, payload: [{type:'danger', msg:'An error has occurred'}]});
+                }
+            });
+        }
+        reader.readAsDataURL(img);
     }
 
-    const deleteImgForAdmin = (name) => {
+    const deleteImgForAdmin = (index) => {
         dispatch({type: types.SET_LOAD, payload: true});
-        fetch(`/api/gallery/${name}`, {method:'delete',headers:adminHeader})
+        fetch('/api/gallery', {method:'delete',body:index,headers:adminHeader})
             .then(res=>{
                 if(res.ok){
                     dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image deleted successfuly'}]});
@@ -67,7 +69,7 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
             {
                 imgs.map((src,i)=><div key={i}>
                     <img src={src} alt="chabbad gallery" className="gal-grid-item grid-item-1"/>
-                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>deleteImgForAdmin(src)}>
+                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>deleteImgForAdmin(i)}>
                         <i className="fa fa-trash"></i> Delete
                     </p>}
                 </div>)
