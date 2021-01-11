@@ -25,5 +25,5 @@ export function adminMiddleware(req,res,next){
                 return next();
         }
     }
-    return res.status(401).json({data:'Unauthorized'});
+    throw new Error('Unauthorized');
 }

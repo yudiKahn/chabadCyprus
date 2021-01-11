@@ -5,9 +5,9 @@ import path from 'path';
 
 var upload = multer({
     storage: multer.diskStorage({
-        destination: process.env.ROOT+'/public/imgs',
+        destination: process.env.ROOT+'/public',
         filename: function(req,file, cb){
-            cb(null, Date.now() + path.extname(file.originalname));
+            cb(null, `gallery_${Date.now()}${path.extname(file.originalname)}`);
         }
     }),
     limits: {
@@ -16,16 +16,15 @@ var upload = multer({
 });
 
 async function handler(req,res){
-    const path = process.env.ROOT+'/public/imgs';
+    const path = process.env.ROOT+'/public';
     switch(req.method){
         case 'GET':
-            const files = fs.readdirSync(path);
-            return res.json({data: files.map(v=> `/imgs/${v}`)})
+            const files = fs.readdirSync(path).filter(v=> /gallery_[0-9]/.test(v)  );
+            return res.json({data: files})
         case 'POST':
-            await adminMiddleware(req,res, async()=>{
-                await runMiddleware(req, res, upload.single('img'));
-                return res.json({data:'ok'});
-            });
+            await runMiddleware(req, res, adminMiddleware);
+            await runMiddleware(req, res, upload.single('img'))
+            return res.json({data:'ok'});
         default:
             return res.status(405).json({data: 'Method not allowed'})
     }
@@ -39,10 +38,9 @@ export const config = {
 
 export default handler;
 
-function runMiddleware(req, res, fn) {
+export function runMiddleware(req, res, fn) {
     return new Promise((resolve, reject) => {
       fn(req, res, (result) => {
-          console.log(result)
         if (result instanceof Error) {
           return reject(result)
         }
