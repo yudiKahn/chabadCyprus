@@ -1,14 +1,14 @@
 import fs from 'fs';
 import shabbatJson from '../../assets/shabbat.json';
 import { adminMiddleware } from './admin';
+import { runMiddleware } from './gallery';
 
-function handler(req,res){
+async function handler(req,res){
     const path = process.env.ROOT+'/assets/shabbat.json';
     switch(req.method){
         case 'GET':
-            // adminMiddleware(req,res, ()=>{
-               return res.json({data: shabbatJson.data});
-            // });
+            await runMiddleware(req, res, adminMiddleware);
+            return res.json({data: shabbatJson.data});
         case 'POST':
             const {shabbat, night, day, email, phone, name, donation} = JSON.parse(req.body);
             if(didUserAlreadyRegister(shabbat, email)){
