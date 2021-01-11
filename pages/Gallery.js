@@ -20,26 +20,24 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
     },[]);
 
     const uploadImgForAdmin = () => {    
-        dispatch({type: types.SET_LOAD, payload: true});
-        const reader = new FileReader();
-        reader.readAsDataURL(img);
-        reader.onload = function(e){
-            fetch('/api/gallery', {method:'POST', body:e.target.result, headers: adminHeader})
-            .then(res=>{
-                if(res.ok){
-                    dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image upload successfuly'}]});
-                    setTimeout(getImgs.current, 500);
-                } else {
-                    dispatch({type: types.SET_LOAD, payload:false});
-                    dispatch({type: types.SET_ALERTS, payload:[{type:'warning',msg:res.statusText}]});
-                }
-            });
-        }
+        dispatch({type: types.SET_LOAD, payload: true});   
+        const fd = new FormData();
+        fd.append('img', img);
+        fetch('/api/gallery', {method:'POST',body:fd, headers:adminHeader })
+        .then(res=>{
+            if(res.ok){
+                getImgs.current();
+                dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image uploaded successfuly'}]});
+            } else {
+                dispatch({type: types.SET_LOAD, payload: false});
+                dispatch({type: types.SET_ALERTS, payload: [{type:'danger', msg:'An error has occurred'}]});
+            }
+        });
     }
 
     const deleteImgForAdmin = (index) => {
         dispatch({type: types.SET_LOAD, payload: true});
-        fetch('/api/gallery', {method:'delete',body:index,headers:adminHeader})
+        fetch(`/api/gallery/${index}`, {method:'delete',headers:adminHeader})
             .then(res=>{
                 if(res.ok){
                     dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image deleted successfuly'}]});
