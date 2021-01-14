@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Alerts from '../components/Alerts';
 import { useEffect, useReducer, useRef, useState } from 'react';
 import Spinner from '../components/Spinner';
+import Sidebar from '../components/Sidebar';
 
 export const types = {
     SET_ADMIN:'SET_ADMIN',
@@ -40,6 +41,7 @@ function App({ Component, props }) {
     <Navbar state={state} dispatch={dispatch}/>
     <Alerts alerts={state.alerts} dispatch={dispatch}/>
     <Spinner load={state.load}/>
+    <Sidebar lang={state.lang}/>
     <Component {...props} state={state} dispatch={dispatch}
      adminHeader={{'x-Admin-Header':state.admin}}/>
     <Footer/>

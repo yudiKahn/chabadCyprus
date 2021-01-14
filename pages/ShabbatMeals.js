@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import text from '../assets/text.json';
 import Layout from '../components/Layout';
 import { types } from './_app';
+import {ShabbatMeals as Candles} from '../components/Icons';
 const shabbatUrl = `https://www.hebcal.com/hebcal?v=1&cfg=json&year=now&month=${new Date().getMonth()+1}&ss=on&c=on&geo=city&city=CY-Nicosia&m=50&s=on`;
 
 
@@ -64,7 +65,7 @@ export default function ShabbatMeals({state:{lang}, dispatch}) {
                     </select>
                 </div>
                 <div className="shabbat-time mx-auto my-4 row">
-                    <div style={{width:70, height:70}} className="col-3 candles-img"></div>
+                    <Candles style={{width:70,height:70,fill:"#dc3546"}} id="candle-img"/>
                     <div className="col-9" style={{display:'grid',placeContent:'center'}}>
                     <span>
                     {
@@ -81,7 +82,10 @@ export default function ShabbatMeals({state:{lang}, dispatch}) {
                 </div>
                 {
                     Object.keys(fields).map((k,i)=> i>0 && <div className={`form-group ${lang==='he'?'text-right':''}`} key={i}>
-                    <label htmlFor={k}>{text[lang]['shabbat-form'][i]}</label>
+                    <label htmlFor={k}>
+                        {text[lang]['shabbat-form'][i].split('~')[0]}
+                        <small> {text[lang]['shabbat-form'][i].split('~')[1]}</small>
+                    </label>
                     <input id={k} type={/email/.test(k)?'email':/(day|night|donation)/.test(k)?'number':'text'} className="form-control danger" value={fields[k]} onChange={onChange}/>
                     </div>)
                 }

@@ -20,10 +20,10 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
     },[]);
 
     const uploadImgForAdmin = () => {    
-        dispatch({type: types.SET_LOAD, payload: true});   
-        const reader = new FileReader();
-        reader.onload = function(){
-            fetch('/api/gallery', {method:'POST',body:reader.result, headers:adminHeader })
+        dispatch({type: types.SET_LOAD, payload: true});  
+        const fd = new FormData();
+        fd.append("img", img); 
+        fetch('/api/gallery', {method:'POST',body:fd, headers:adminHeader })
             .then(res=>{
                 if(res.ok){
                     getImgs.current();
@@ -33,13 +33,11 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
                     dispatch({type: types.SET_ALERTS, payload: [{type:'danger', msg:'An error has occurred'}]});
                 }
             });
-        }
-        reader.readAsDataURL(img);
     }
 
-    const deleteImgForAdmin = (index) => {
+    const deleteImgForAdmin = (name) => {
         dispatch({type: types.SET_LOAD, payload: true});
-        fetch('/api/gallery', {method:'delete',body:index,headers:adminHeader})
+        fetch(`/api/gallery/${name}`, {method:'delete',headers:adminHeader})
             .then(res=>{
                 if(res.ok){
                     dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image deleted successfuly'}]});
@@ -68,8 +66,8 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
         <div className="gal-grid-container">
             {
                 imgs.map((src,i)=><div key={i}>
-                    <img src={src} alt="chabbad gallery" className="gal-grid-item grid-item-1"/>
-                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>deleteImgForAdmin(i)}>
+                    <img src={`/api/gallery/${src}`} alt="chabbad gallery" className="gal-grid-item grid-item-1"/>
+                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>deleteImgForAdmin(src)}>
                         <i className="fa fa-trash"></i> Delete
                     </p>}
                 </div>)

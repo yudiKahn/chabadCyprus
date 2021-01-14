@@ -1,14 +1,13 @@
 {
     "en":{
         "links":["Home","Shabbat Meals","About","Donate","Gallery","More","Prayer Times","Kosher Food"],
-        "welcome": "WELCOME TO CHABAD OF CYPRUS",
+        "welcome": "WELCOME TO CHABAD OF AYIA NAPA",
         "welcome_btn1":"Donate",
         "welcome_btn2":"Contact",
-        "info_title":"Useful information for travelers",
-        "info":["Shabbat Meals","Contact Us","Kosher Food","Hotels","info"],
+        "info":["Shabbat Meals","Contact Us","Kosher Food","Hotels","Traveler info"],
         "shabbat-title":"SHABBAT MEALS CYPRUS",
         "shabbat-subtitle":"When will you be joining us?",
-        "shabbat-form": ["Select shabbat","Friday night - €30 per guest","Shabbat day - €30 per guest","Email","Phone Number","Full name","Donation - in euro"],
+        "shabbat-form": ["Select shabbat","Friday night - €18 per guest","Shabbat day - €18 per guest","Email","Phone Number","Full name","Donation - in euro~for the rest of chabad activities"],
         "donate-title":"Donate",
         "click-me":"Click Me",
         "contact-title":"Contact",
@@ -18,19 +17,19 @@
         "info-row":{ 
             "location":["Waiting for you at Chabad House","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
             "phone": ["We are available for any questions","+35-796-640980"],
-            "hours": ["Our hours of operation","Sunday through Thursday: 08:00-18:00 Friday: 08:00-14:30"]
-        }
+            "hours": ["Our hours of operation","Sunday through Thursday: 10:00-21:00 Friday: 08:00-14:30"]
+        },
+        "about":"Ayia Napa ~ one of Cyprus's most popular resorts, hosts hundreds of thousands of tourists during the five-month summer \"season,\" including 100,000 Jewish and Israeli youngsters, many of whom are just out of school and have come to enjoy the beaches, the sports and water activities and the night life the city has to offer. That's where we find them and offer them a warm home from home, a taste of holiness in these mundane surroundings. Right here, where they've come to escape it all, they find a link to their tradition and many of them embark on their spiritual journey from this place. Chabad Ayia NapaIn the summer of 2016, with the rise in the number of tourists coming here, Rabbi Zushe and Yaeli Neymark arrived with their small son Uri, concentrating on working with the youngsters here in their Chabad House. They're very keen and highly motivated to be able to handle all the youngsters who enter their doors. They run a range of activities – homestyle Shabbat meals with delicious, nourishing foods, a store providing kosher food all week from early morning until late at night, shiurim, minyanim, evening programs for youth and much, much more. By the way, if you happen to be in Ayia Napa on Friday night and you hear the beautiful singing as you pass by our Chabad House, you're more than welcome to come in and join the 400 youngsters enjoying our communal Kabbalat Shabbat service. Entrance is free and everyone's invited"
     },
     "he":{
         "links":["בית","ארוחות שבת","אודות","תרום","גלריה","עוד","זמני תפילות","אוכל כשר"],
-        "welcome": "ברוכים הבאים לחב\"ד קפריסין",
+        "welcome": "ברוכים הבאים לבית חב\"ד איה נאפה",
         "welcome_btn1":"תרום",
         "welcome_btn2":"צור קשר",
-        "info_title":"מידע למטייל",
-        "info":["ארוחות שבת","צור קשר","אוכל כשר","מלונות","מידע"],
+        "info":["ארוחות שבת","צור קשר","אוכל כשר","מלונות קרובים","מידע למטייל"],
         "shabbat-title":"ארוחות שבת",
         "shabbat-subtitle":"? מתי תצטרפו אלינו",
-        "shabbat-form": ["בחר שבת","שישי לילה - €30 לאורח","שבת בוקר - €30 לאורח","אימייל","מס' פלאפון","שם מלא","תרומה (ביורו)"],
+        "shabbat-form": ["בחר שבת","שישי לילה - €18 לאורח","שבת בוקר - €18 לאורח","אימייל","מס' פלאפון","שם מלא","תרומה (ביורו)~לשאר הפעילויות בבית חב\"ד"],
         "donate-title":"תרום",
         "click-me":"לחץ כאן",
         "contact-title":"צור קשר",
@@ -38,9 +37,10 @@
         "about-title":"אודות",
         "submit":"אשר",
         "info-row":{ 
-            "location":["מחכים לך בבית חב''ד","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
-            "phone": ["אנחנו פנויים לכל שאלה","+35-796-640980"],
-            "hours": ["שעות פעילות","ראשון עד חמישי :08:00-18:00, שישי :08:00-14:30"]
-        }
+            "location":["מחכים לך בבית חב\"ד","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
+            "phone": ["אנו כאן בשבילך בכל אמצעי תקשורת","+35-796-640980"],
+            "hours": ["שעות פעילות","ראשון עד חמישי :10:00-21:00, שישי :08:00-14:30"]
+        },
+        "about":"איה נאפה ~ אחת מערי הנופש הכי מבוקשות בקיץ, מארחת מאות אלפי תיירים ומתוכם כמאה אלף תיירים יהודים וישראליים צעירים במשך 5 חודשי ה'עונה'. בין אלפי התיירים ישנם צעירים וצעירות ישראלים רבים שרק סיימו את שנות לימודם בית ספר והם בדרך להתגייס לצבא במשך החודשים הקרובים. רגע לפני ההתקדמות לשלב הבא בחיים, הם מגיעים לאיה נאפה ליהנות מהחופים, פעילויות ספורט ומים, מסיבות לילה ואטרקציות. שם אנו פוגשים אותם, ובתוך כל הבילויים מעניקים להם בית של אור וקדושה, הבית שלהם באיה נאפה. המפגש הבלתי אמצעי בתקופה זו של חיהם מחזקת את הקשר שלהם ליהדות ולמסורת בתיהם בהמשך החיים - דווקא ברגעים בהם הם רוצים \"להשתחרר\" ניתנת ההזדמנות לזריעת הגרעין לאהבת ה' ואהבת ישראל. פעילות באיה נאפהעם עליית מספר התיירים המבקרים במדינה, בשלהי קיץ 2016 הגיעו לאי קפריסין הרב זושא ויעלי ניימרק יחד עם בנם הקטן אורי בכדי להיות חלק מהפעילות היהודית החשובה בקפריסין, כאשר פעילות הדגל שלהם היא הפעילות עם הצעירים במדינה, ובכלל זה בבית חב\"ד איה נאפה. משפחת ניימרק הגיעה חדורת מוטיבציה להגדיל הפעילות ולהכלת כל הצעירים הבאים לבית חב\"ד.בבית חב\"ד איה נאפה מתקיימות פעילויות רבות: סעודות שבת - ממש כמו בבית, עם המאכלים הטעימים והמזינים ביותר, אוכל כשר בימי השבוע מהבוקר ועד אחרון האורחים, חנות כשרה, שיעורי תורה ומניינים, פעילוית עם נערים, ערבי מסורת, ערבי ארץ ישראל היפה, ועוד רבות...אגב, אם אתם עוברים בשישי בלילה באיה נאפה ושומעים את זמירות השבת המתנגנות, אתם מוזמנים להכנס ולהצטרף ל400 הצעירים שעושים קבלת שבת מרכזית איתנו יחד. הכניסה חופשית, כולם מוזמנים!"
     }
 }

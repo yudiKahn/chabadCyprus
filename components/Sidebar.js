@@ -1,0 +1,65 @@
+import { useState } from "react";
+import { Contact, Food, Hotels } from "./Icons";
+import Link from 'next/link';
+
+function Sidebar({lang}){
+    const [isActive, setActive] = useState(false);
+    const w=70, h=60;
+
+    return (<>
+        <style jsx>{`
+        .sidebar-btn{
+            position:fixed;
+            padding:9px;
+            bottom: 10px; right:10px;
+            width:${w}px; height:${h}px;
+            border-radius: 20px;
+            background-color: white;
+            z-index: 100;
+            cursor: pointer;
+            box-shadow: 1px 1px 10px black;
+        }
+        .sidebar-btn .btn{
+            width:100%; height:100%;
+            border-radius:15px;
+            display:grid; place-content:center;
+        }
+        .sidebar {
+            position: fixed;
+            bottom: 10px; right:${20+w}px;
+            height: 60px;
+            z-index: 90;
+            background-color:white;
+            box-shadow: 1px 1px 10px black;
+            border-radius:20px;
+        }
+        .sidebar.show { width: 300px; }
+        .sidebar.hide { width: 70px; visibility: hidden; }
+        .col{
+            display:grid; place-content:center; height:50px;
+        }
+        `}</style>
+        <div className="sidebar-btn" onClick={()=> setActive(!isActive)}>
+            <i className="btn btn-fill-blue fa fa-link fa-2x"></i>
+        </div>
+        <div className={`row mx-0 sidebar ${isActive ? 'show' : 'hide'}`}>
+            <div className="col">
+                <Link href="/Contact">
+                    <span><Contact className="sidebar-icon"/></span>
+                </Link>
+            </div>
+            <div className="col">
+                <Link href="/Food">
+                    <span><Food className="sidebar-icon"/></span>
+                </Link>
+            </div>
+            <div className="col">
+                <Link href="/Hotels">
+                    <span><Hotels className="sidebar-icon"/></span>
+                </Link>
+            </div>
+        </div>
+    </>)
+}
+
+export default Sidebar;
