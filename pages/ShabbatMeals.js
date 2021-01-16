@@ -47,9 +47,13 @@ export default function ShabbatMeals({state:{lang}, dispatch}) {
                 <div className="shabbat-time mx-auto my-4 row">
                     <Candles style={{width:70,height:70,fill:"#dc3546"}} id="candle-img"/>
                     <div className="col-9" style={{display:'grid',placeContent:'center'}}>
+                    {   
+                        getUpcommingShabbat(shabbats) && (<>
                         <h4>{getUpcommingShabbat(shabbats).parasha[lang]}</h4>
                         <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).start}</p>
                         <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).end}</p>
+                        </>)
+                    }
                     </div>
                 </div>
                 <div className={`form-group ${lang==='he'?'text-right':''}`}>
@@ -87,7 +91,7 @@ function formatShabbatsList(list){
     let res = [];
     for(let i=0; i<list.length; i+=3){
         let tmpTime = new Date(list[i].date).valueOf();
-        if(tmpTime > now + (weekInMs * 9)){
+        if(tmpTime > now + (weekInMs * showWeeks)){
             break;
         } else if(now <= tmpTime) {
             const obj = {
