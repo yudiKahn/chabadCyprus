@@ -15,10 +15,10 @@ function About({state:{lang}}) {
         <div className="row mx-0" style={{height:200}}>
             <img className="w-100 h-100" alt="about chabbad" src="https://th.bing.com/th/id/OIP.1XJQIFqhxcn0cTuiCH7nTgAAAA?pid=Api&rs=1"/>
         </div>
-        <div className="row mx-0 mt-3">
-            <p style={{fontSize:'larger',textAlign:'center'}}>
-            <strong>{text[lang].about.split(' ~ ')[0]}</strong> - 
-            {text[lang].about.split(' ~ ')[1]}
+        <div className="row mx-0 my-4">
+            <p style={{fontSize:30,textAlign:'center'}}>
+            <strong>{text[lang].about.split(' ~ ')[0]}</strong>&nbsp;
+            <i>{text[lang].about.split(' ~ ')[1]}</i>
             </p>
         </div>
     </div>

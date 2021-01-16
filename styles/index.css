@@ -47,7 +47,8 @@
   }
   .bg-img .h-100.w-100 h1{
     color: white;
-    width: 450px; font-size: 50px;
+    width: 450px; max-width: 95vw;
+    font-size: 50px;
     text-shadow: 0 2px 4px rgba(0,0,0,.8);
     font-weight: 800;
   }

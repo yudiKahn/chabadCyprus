@@ -26,6 +26,7 @@ function Sidebar({lang}){
         }
         .sidebar {
             position: fixed;
+            max-width: calc(99vw - ${20+w}px);
             bottom: 10px; right:${20+w}px;
             height: 60px;
             z-index: 90;
