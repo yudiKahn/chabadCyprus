@@ -1,6 +1,7 @@
+import { connect } from "react-redux"
 
-export default function Spinner({load}) {
-    return load ? (
+function Spinner({loading}) {
+    return loading ? (
         <div className="spinner-container">
             <style jsx>{`
             .spinner-container{
@@ -14,3 +15,5 @@ export default function Spinner({load}) {
         </div>
     ) : (null)
 }
+
+export default connect(s=>({loading:s.loading}))(Spinner)

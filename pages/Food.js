@@ -1,10 +1,8 @@
-import Layout from '../components/Layout';
+import {ImgTop, Layout} from '../components';
 
 function Food() {
-    return (<Layout>
-        <div>
-        
-        </div>
+    return (<Layout title="Food">
+        <ImgTop title="food-title"/>
     </Layout>)
 }
 

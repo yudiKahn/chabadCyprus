@@ -1,7 +1,8 @@
 import Layout from "../components/Layout";
 import Link from 'next/link';
+import { connect } from "react-redux";
 
-export default function Four0Four({state:{lang}}) {
+function Four0Four({lang}) {
     return (<Layout title="404">
         <div style={{minHeight:'90vh',display:'grid',placeContent:'center'}}>
             <h4>
@@ -16,3 +17,7 @@ export default function Four0Four({state:{lang}}) {
         </div>
     </Layout>)
 }
+const mapSTP = s => ({
+    lang:s.lang
+})
+export default connect(mapSTP)(Four0Four);

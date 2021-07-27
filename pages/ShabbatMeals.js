@@ -1,36 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import text from '../assets/text.json';
-import Layout from '../components/Layout';
-import { types } from './_app';
-import {ShabbatMeals as Candles} from '../components/Icons';
-const shabbatUrl = `https://www.hebcal.com/hebcal?v=1&cfg=json&year=now&ss=on&c=on&geo=city&city=CY-Nicosia&m=50&s=on`;
+import {Layout, Icons } from '../components';
+import { connect } from 'react-redux';
+import {addAlert} from '../redux/actions';
 
+const Shabbat = {
+    formatShabbatsList: (list) => {
+        const now = new Date().valueOf();
+        const weekInMs = 604800000;
+        const showWeeks = 9;
+        let res = [];
+        for(let i=0; i<list.length;i++){
+            let tmpTime = new Date(list[i].date).valueOf();
+            if(tmpTime > now + (weekInMs * showWeeks)){
+                break;
+            } else if(now <= tmpTime && (list[i].date && new Date(list[i].date).getDay()===5)) {
+                const obj = {
+                    date: new Date(list[i].date).toDateString(),
+                    start: `${new Date(list[i].date).getHours()}:${new Date(list[i].date).getMinutes()}`,
+                    parasha: {
+                        he: list[i+1].hebrew,
+                        en: list[i+1].title
+                    },
+                    end: `${new Date(list[i+2].date).getHours()}:${new Date(list[i+2].date).getMinutes()}`
+                }
+                res.push(obj);
+            }
+        } 
+        return res;
+    },
+    getUpcommingShabbat: (list) => {
+        const msInWeek = -604800000;
+        let res = list.filter((v)=>{
+            const diffrence = new Date().valueOf() - new Date(v.date).valueOf();
+            if(diffrence < 0 && diffrence >= msInWeek){
+                return v;
+            }
+        });
+    
+        return res[0];
+    },
+    isShabbat: (list, index) => {
+        if(list[index].date && new Date(list[index].date).getDay() === 5){//if friday
 
-export default function ShabbatMeals({state:{lang}, dispatch}) {
-    const [shabbats, setShabbats] = useState([]);
+        }
+    }
+};
+
+function ShabbatMeals({lang, addAlert, shabbats}) {
+    const [shabbat, setShabbat] = useState(null)
     const [fields, setFields] = useState({
         shabbat:'', night:0, day:0, email:'', phone:'', name:'', donation:0
     });
-
-    useEffect(()=>{
-        fetch(shabbatUrl, {method:'GET'}).then(res=> res.ok && res.json().then(d=> setShabbats(formatShabbatsList(d.items))));
-    }, []);
 
     const onChange = (e) => {
         /(day|night|donation)/.test(e.target.id) && Number(e.target.value) < 0 && (e.target.value=0); 
         /(day|night)/.test(e.target.id) && (e.target.value = Number(e.target.value).toFixed(0));
         setFields({...fields, [e.target.id]: e.target.value});
     };
-    const onsubmit = e => {
+    const onsubmit = async e => {
         e.preventDefault();
         const {shabbat, night, day, email, phone, name} = fields;
         if(shabbat && (Number(night)>0 || Number(day)>0) && email && phone && name){
-            fetch('/api/shabbat', {method:'POST', body:JSON.stringify(fields)})
-            .then(res=> res.ok ? 
-                dispatch({type:types.SET_ALERTS,payload:[{type:'success',msg:'Registration succeeded'}]}) : 
-                res.json().then(d=> dispatch({type:types.SET_ALERTS,payload:[{type:'secondary',msg:d.data}]})))
+            let resp = await fetch('/api/shabbat', {method:'POST', body:JSON.stringify(fields)});
+            addAlert(resp.ok ? {type:'success',msg:'Registration succeeded'} : {type:'secondary',msg:"Error while registering"});
         } else {
-            dispatch({type: types.SET_ALERTS, payload:[{type:'warning',msg:'Please fill all fields'}]});
+            addAlert({type:'warning',msg:'Please fill all fields'});
         }
     }
 
@@ -45,14 +80,14 @@ export default function ShabbatMeals({state:{lang}, dispatch}) {
         <div className="container py-3">
             <form className="p-4 mx-auto shabbat-sel">
                 <div className="shabbat-time mx-auto my-4 row">
-                    <Candles style={{width:70,height:70,fill:"#dc3546"}} id="candle-img"/>
+                    <Icons.ShabbatMeals style={{width:70,height:70,fill:"#dc3546"}} id="candle-img"/>
                     <div className="col-9" style={{display:'grid',placeContent:'center'}}>
-                    {   
-                        getUpcommingShabbat(shabbats) && (<>
-                        <h4>{getUpcommingShabbat(shabbats).parasha[lang]}</h4>
-                        <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).start}</p>
-                        <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).end}</p>
-                        </>)
+                    {   JSON.stringify(shabbat)
+                        // getUpcommingShabbat(shabbats) && (<>
+                        // <h4>{getUpcommingShabbat(shabbats).parasha[lang]}</h4>
+                        // <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).start}</p>
+                        // <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).end}</p>
+                        // </>)
                     }
                     </div>
                 </div>
@@ -84,40 +119,18 @@ export default function ShabbatMeals({state:{lang}, dispatch}) {
     </Layout>)
 }
 
-function formatShabbatsList(list){
-    const now = new Date().valueOf();
-    const weekInMs = 604800000;
-    const showWeeks = 9;
-    let res = [];
-    for(let i=0; i<list.length; i+=3){
-        let tmpTime = new Date(list[i].date).valueOf();
-        if(tmpTime > now + (weekInMs * showWeeks)){
-            break;
-        } else if(now <= tmpTime) {
-            const obj = {
-                date: new Date(list[i].date).toDateString(),
-                start: list[i].title,
-                parasha: {
-                    he: list[i+1].hebrew,
-                    en: list[i+1].title
-                },
-                end: list[i+2].title
-            }
-            res.push(obj);
-        }
+export async function getStaticProps() {
+    let res = {props: { shabbats:[], city:'' }};
+    try {
+        let resp = await fetch('https://www.hebcal.com/hebcal?v=1&cfg=json&year=now&ss=on&c=on&geo=city&city=CY-Nicosia&m=50&s=on')
+        if(!resp.ok) throw new Error();
+        let data = await resp.json();
+        res.props.shabbats = Shabbat.formatShabbatsList(data.items);
+        res.props.city = data.location.title;
+    } catch (err) {
+        
     }
-    
     return res;
-};
-
-function getUpcommingShabbat(list){
-    const msInWeek = -604800000;
-    let res = list.filter((v)=>{
-        const diffrence = new Date().valueOf() - new Date(v.date).valueOf();
-        if(diffrence < 0 && diffrence >= msInWeek){
-            return v;
-        }
-    });
-
-    return res[0];
 }
+
+export default connect(s=>({lang:s.lang}), {addAlert})(ShabbatMeals);

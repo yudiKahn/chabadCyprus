@@ -1,7 +1,8 @@
-import { types } from "../pages/_app";
+import { connect } from "react-redux";
+import {clearAlert} from '../redux/actions';
 
-export default function Alerts({alerts, dispatch}) {
-    const clearAlert = (index) => dispatch({type:types.CLEAR_ALERTS, payload: index})
+
+function Alerts({alerts, clearAlert}) {
 
     return alerts.length > 0 ? (<div className="alert-container">
         <style jsx>{`
@@ -23,3 +24,8 @@ export default function Alerts({alerts, dispatch}) {
         }
     </div>) : null;
 }
+
+const mapSTP = s => ({
+  alerts:s.alerts
+});
+export default connect(mapSTP, {clearAlert})(Alerts);

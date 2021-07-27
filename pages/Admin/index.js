@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Layout from '../../components/Layout';
-import {types} from '../_app';
+import {Layout} from '../../components';
 import Link from 'next/link';
+import { connect } from 'react-redux';
+import {setAdmin, setLoading} from '../../redux/actions';
 
 const AdminLoginJSX = ({email, password,onChange,onSubmit}) => 
 (<div className="container" style={{display:'grid',placeContent:'center',height:'90vh'}}>
@@ -18,15 +19,19 @@ const AdminLoginJSX = ({email, password,onChange,onSubmit}) =>
 </div>);
 
 
-function index({state:{admin}, dispatch}) {
+function index({admin, setAdmin, setLoading}) {
     const [fields, setFields] = useState({ email:'', password:'' }); 
     const onFieldsChange = (e) => setFields({...fields, [e.target.id]: e.target.value});
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        fetch('/api/admin', {method:'POST', body: JSON.stringify(fields) })
-        .then(res=> res.ok ? res.json().then(data=>{
-            dispatch({type: types.SET_ADMIN, payload: data.token})
-        }): dispatch({type: types.CLEAR_ADMIN }) );
+        setLoading(true);
+        try {
+            let resp = await fetch('/api/admin', {method:'POST', body: JSON.stringify(fields) });
+            let data = await resp.json();
+            setAdmin(resp.ok ? data.token : null);
+        } catch (error) {
+            console.log(error);
+        } setLoading(false);
     }
 
     return (<Layout title="Admin">
@@ -49,4 +54,4 @@ function index({state:{admin}, dispatch}) {
     </Layout>)
 }
 
-export default index;
+export default connect(s=>({admin:s.admin}), {setAdmin, setLoading})(index);

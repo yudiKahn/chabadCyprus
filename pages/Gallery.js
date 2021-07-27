@@ -1,61 +1,58 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Layout from '../components/Layout';
+import {ImgTop, Layout} from '../components';
 import text from '../assets/text.json';
-import {types} from './_app';
+import firebase from 'firebase/app';
+import "firebase/storage";
+import { connect } from 'react-redux';
+import {setLoading} from '../redux/actions';
+import init_firebase from '../firebase';
 
-function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
-    const [imgs, setImgs]  = useState([]);
+function Gallery({lang,admin, setLoading}) {
     const [img, setImg] = useState('');
+    const [imgs, setImgs] = useState([]);
 
-    const getImgs = useRef(()=>{});
-    getImgs.current = () => {
-        dispatch({type: types.SET_LOAD, payload: true});
-        fetch('/api/gallery', {method:'GET'}).then(res=> res.ok && res.json().then(d=> {
-            setImgs(d.data); 
-            dispatch({type: types.SET_LOAD, payload:false});
-        }));
-    };
+    const initImgs = useRef(async ()=>{});
+    initImgs.current = async () => {
+        setLoading(true);
+        try {
+            init_firebase();
+            let tmp = [];
+            let allFiles = await firebase.storage().ref('gallery').listAll();
+            for(let i=0;i<allFiles.items.length;i++){
+                let url = await allFiles.items[i].getDownloadURL();
+                tmp.push({url,name:allFiles.items[i].name});
+            } setImgs(tmp);
+        } catch (error) {
+            console.log(error)
+        } setLoading(false);
+    }
+
+    const uploadImgForAdmin = async () => {   
+        try {
+            setLoading(true); 
+            await firebase.storage().ref('gallery/'+img.name).put(img);
+            await initImgs.current();
+        } catch (err) {
+            console.log(err);
+        } setLoading(false);
+    }
+
+    const deleteImgForAdmin = async (name) => {
+        try {
+            setLoading(true); 
+            await firebase.storage().ref('gallery/'+name).delete();
+            await initImgs.current();
+        } catch (err) {
+            console.log(err);
+        } setLoading(false);
+    }
+
     useEffect(()=>{
-        getImgs.current();
+        initImgs.current();
     },[]);
 
-    const uploadImgForAdmin = () => {    
-        dispatch({type: types.SET_LOAD, payload: true});  
-        const fd = new FormData();
-        fd.append("img", img); 
-        fetch('/api/gallery', {method:'POST',body:fd, headers:adminHeader })
-            .then(res=>{
-                if(res.ok){
-                    getImgs.current();
-                    dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image uploaded successfuly'}]});
-                } else {
-                    dispatch({type: types.SET_LOAD, payload: false});
-                    dispatch({type: types.SET_ALERTS, payload: [{type:'danger', msg:'An error has occurred'}]});
-                }
-            });
-    }
-
-    const deleteImgForAdmin = (name) => {
-        dispatch({type: types.SET_LOAD, payload: true});
-        fetch(`/api/gallery/${name}`, {method:'delete',headers:adminHeader})
-            .then(res=>{
-                if(res.ok){
-                    dispatch({type:types.SET_ALERTS, payload:[{type:'success', msg:'Image deleted successfuly'}]});
-                    setTimeout(getImgs.current, 500);
-                } else {
-                    dispatch({type: types.SET_ALERTS, payload:[{type:'danger',msg:'An error occurred'}]});
-                }
-            });
-    }
-
     return (<Layout title="Gallery">
-    <div className="shabbat-head-img">
-        <div className="w-100 h-100">
-            <h1 className="text-white text-center w-100" style={{fontWeight:800}}>
-                {text[lang]["gallery-title"]}
-            </h1>
-        </div>
-    </div>
+    <ImgTop title="gallery-title"/>
     {
         admin && <div className="row mx-0 justify-content-center py-1">
         <input type="file" accept="image/*" onChange={e=> setImg(e.target.files[0])}/>
@@ -65,9 +62,9 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
     <div className="gal-body py-5">
         <div className="gal-grid-container">
             {
-                imgs.map((src,i)=><div key={i}>
-                    <img src={`/api/gallery/${src}`} alt="chabbad gallery" className="gal-grid-item grid-item-1"/>
-                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>deleteImgForAdmin(src)}>
+                imgs.map((val,i)=><div key={i}>
+                    <img src={val.url} alt="chabbad gallery" className="gal-grid-item grid-item-1"/>
+                    {admin && <p className="m-0 badge badge-danger c-p" onClick={()=>deleteImgForAdmin(val.name)}>
                         <i className="fa fa-trash"></i> Delete
                     </p>}
                 </div>)
@@ -77,5 +74,4 @@ function Gallery({state:{lang, admin}, adminHeader, dispatch}) {
     </Layout>)
 }
 
-
-export default Gallery;
+export default connect(s=>({lang:s.lang,admin:s.admin}), {setLoading})(Gallery);

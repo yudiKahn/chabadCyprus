@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import text from '../assets/text.json';
-import Layout from '../components/Layout';
-import { Contact, Food, Hotels, ShabbatMeals } from '../components/Icons';
+import {Layout, Icons} from '../components';
+import { connect } from 'react-redux';
+import React from 'react';
 
-function Home({state:{lang}}) {
+function Home({lang}) {
     return (<Layout>
         <section className="bg-img">
             <div className="w-100 h-100 px-3" style={lang==='he'?{justifyContent:'flex-end'}:{}}>
@@ -24,25 +25,25 @@ function Home({state:{lang}}) {
         <div className="py-5 row mx-0 justify-content-center">
             <Link href="/ShabbatMeals">
                 <div className="col info-icon py-4 m-3">
-                    <ShabbatMeals style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
+                    <Icons.ShabbatMeals style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
                     <p className="mb-0 mt-4">{text[lang].info[0]}</p>
                 </div>
             </Link>
             <Link href="/Contact">
                 <div className="col info-icon py-4 m-3">
-                    <Contact style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
+                    <Icons.Contact style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
                     <p className="mb-0 mt-4">{text[lang].info[1]}</p>
                 </div>
             </Link>
             <Link href="/Food">
                 <div className="col info-icon py-4 m-3">
-                    <Food style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
+                    <Icons.Food style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
                     <p className="mb-0 mt-4">{text[lang].info[2]}</p>
                 </div>
             </Link>
             <Link href="/Hotels">
                 <div className="col info-icon py-4 m-3">
-                    <Hotels style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
+                    <Icons.Hotels style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
                     <p className="mb-0 mt-4">{text[lang].info[3]}</p>
                 </div>
             </Link>
@@ -88,40 +89,7 @@ function Home({state:{lang}}) {
         </section>
     </Layout>)
 }
-
-export default Home;
-
-/* <div className="xx-body font-bold">
-                <div className="xx-container">
-                    <div className="xx-card">
-                        <img alt="xx" src="https://images.squarespace-cdn.com/content/v1/5f18474e111f1c29da62258f/1597852695013-G6YZR8M48IM92IGTMP1V/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Friday+Night.jpg" />
-                        <Link href="/Shabbat-Meals">
-                          <a className="xx-card__head">{text[lang].info[0]} &nbsp;<i className="fa fa-mouse-pointer" style={{fontSize:20}}></i></a>
-                        </Link>
-                    </div>
-                    <div className="xx-card">
-                        <img alt="xx" src="https://mknhs.org.uk/wp-content/uploads/2015/03/Contact-Us-Icon.jpg" />
-                        <Link href="/Contact">
-                          <a className="xx-card__head">{text[lang].info[1]} &nbsp;<i className="fa fa-mouse-pointer" style={{fontSize:20}}></i></a>
-                        </Link>
-                    </div>
-                    <div className="xx-card">
-                        <img alt="xx" src="https://www.villazzo.com/blog/wp-content/uploads/2017/10/kosher-food.jpg" />
-                        <Link href="/">
-                          <a className="xx-card__head">{text[lang].info[2]} &nbsp;<i className="fa fa-mouse-pointer" style={{fontSize:20}}></i></a>
-                        </Link>
-                    </div>
-                    <div className="xx-card">
-                        <img alt="xx" src="https://greatcyprusresorts.files.wordpress.com/2013/01/luxury-hotel.jpg" />
-                        <Link href="/Hotels">
-                          <a className="xx-card__head">{text[lang].info[3]} &nbsp;<i className="fa fa-mouse-pointer" style={{fontSize:20}}></i></a>
-                        </Link>
-                    </div>
-                    <div className="xx-card">
-                        <img alt="xx" src="https://cdn.londonandpartners.com/assets/maps/tourist_information/2992-640x360-tourist_information_sign_640.jpg" />
-                        <Link href="/">
-                          <a className="xx-card__head">{text[lang].info[4]} &nbsp;<i className="fa fa-mouse-pointer" style={{fontSize:20}}></i></a>
-                        </Link>
-                    </div>
-                </div>
-            </div> */
+const mapSTP = s => ({
+    lang:s.lang
+})
+export default connect(mapSTP)(Home);

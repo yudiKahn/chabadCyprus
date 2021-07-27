@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import text from '../assets/text.json';
-import { types } from '../pages/_app';
+import { setLang } from '../redux/actions';
+import { connect } from 'react-redux';
 
-export default function Navbar({state:{lang},dispatch}) {
+function Navbar({lang, setLang}) {
     const toggleClass = e => {
         let btn = e.nativeEvent.path.find(el=>Array.from(el.classList).indexOf('navbar-toggler')>-1);
         Array.from(btn.classList).indexOf('click') < 0 ? btn.classList+=' click' : btn.classList.remove('click');
@@ -51,10 +52,10 @@ export default function Navbar({state:{lang},dispatch}) {
                         <li className="nav-item">
                             <div className="nav-btns">
                                 <div className={`col ${lang==='he'?'text-right':''}`}>
-                                    <button className="btn btn-blue mx-1" onClick={()=>dispatch({type:types.SET_LANG,payload:'he'})}>
+                                    <button className="btn btn-blue mx-1" onClick={()=>setLang('he')}>
                                         עברית
                                     </button>
-                                    <button className="btn btn-blue mx-1" onClick={()=>dispatch({type:types.SET_LANG,payload:'en'})}>
+                                    <button className="btn btn-blue mx-1" onClick={()=>setLang('en')}>
                                         English
                                     </button>
                                 </div>
@@ -80,3 +81,9 @@ export default function Navbar({state:{lang},dispatch}) {
         </nav>
     </header>)
 }
+
+const mapSTP = s => ({
+    lang:s.lang
+})
+
+export default connect(mapSTP, {setLang})(Navbar);

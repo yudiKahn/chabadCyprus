@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import Layout from "../../components/Layout";
 
-function ShabbatMeals({adminHeader, state: {admin} }) {
+function ShabbatMeals({adminHeader, admin}) {
     const [users, setUsers] = useState([]);
     useEffect(()=>{
         fetch('/api/shabbat', {method:'GET', headers: adminHeader})
@@ -47,7 +48,7 @@ function ShabbatMeals({adminHeader, state: {admin} }) {
     </Layout>)
 }
 
-export default ShabbatMeals;
+export default connect(s=>({admin:s.admin, adminHeader:s.adminHeader}))(ShabbatMeals);
 
 function setListeners(div){
     var pageX,curCol,nxtCol,curColWidth,nxtColWidth;

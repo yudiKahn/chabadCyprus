@@ -1,10 +1,8 @@
-import Layout from '../components/Layout';
+import {ImgTop, Layout} from '../components';
 
 function Hotels() {
     return (<Layout>
-        <div>
-
-        </div>
+        <ImgTop title="hotels-title"/>
     </Layout>)
 }
 

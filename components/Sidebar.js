@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Contact, Food, Hotels } from "./Icons";
 import Link from 'next/link';
 
-function Sidebar({lang}){
+function Sidebar(){
     const [isActive, setActive] = useState(false);
     const w=70, h=60;
 

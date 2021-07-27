@@ -13,6 +13,8 @@
         "contact-title":"Contact",
         "gallery-title":"Gallery",
         "about-title":"About",
+        "food-title":"Food",
+        "hotels-title":"Hotels",
         "submit":"Submit",
         "info-row":{ 
             "location":["Waiting for you at Chabad House","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
@@ -35,6 +37,8 @@
         "contact-title":"צור קשר",
         "gallery-title":"גלריה",
         "about-title":"אודות",
+        "food-title":"אוכל",
+        "hotels-title":"מלונות",
         "submit":"אשר",
         "info-row":{ 
             "location":["מחכים לך בבית חב\"ד","Kavo Gkreko 11 Ayia Napa, 5330 Cyprus"],
