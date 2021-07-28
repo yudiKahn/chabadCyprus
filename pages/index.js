@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import text from '../assets/text.json';
-import {Layout, Icons} from '../components';
+import {Icons} from '../components';
 import { connect } from 'react-redux';
 import React from 'react';
 
 function Home({lang}) {
-    return (<Layout>
+    return (<>
         <section className="bg-img">
             <div className="w-100 h-100 px-3" style={lang==='he'?{justifyContent:'flex-end'}:{}}>
                 <span style={lang==='he'?{textAlign:'end'}:{}}>
@@ -87,7 +87,7 @@ function Home({lang}) {
             <iframe title="map" className="w-100 h-100" frameBorder="0" src="https://www.google.com/maps/embed/v1/place?q=Chabad+Ayia+Napa-חבד+איה+נפה,+Ayia+Napa,+Cyprus&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
             </iframe>
         </section>
-    </Layout>)
+    </>)
 }
 const mapSTP = s => ({
     lang:s.lang

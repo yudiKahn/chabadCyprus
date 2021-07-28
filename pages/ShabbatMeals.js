@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import text from '../assets/text.json';
-import {Layout, Icons } from '../components';
+import { Icons } from '../components';
 import { connect } from 'react-redux';
 import {addAlert} from '../redux/actions';
+import ReactDatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 const Shabbat = {
     formatShabbatsList: (list) => {
@@ -29,16 +31,13 @@ const Shabbat = {
         } 
         return res;
     },
-    getUpcommingShabbat: (list) => {
-        const msInWeek = -604800000;
-        let res = list.filter((v)=>{
-            const diffrence = new Date().valueOf() - new Date(v.date).valueOf();
-            if(diffrence < 0 && diffrence >= msInWeek){
-                return v;
-            }
-        });
-    
-        return res[0];
+    getUpcommingFriday: () => {
+        let today = new Date();
+        let daysUntilFriday = 6-(today.getDay()+1);
+        if(daysUntilFriday < 0) daysUntilFriday = 6;//today is shabbat
+        let msInDay = 86400000;
+        let firday = new Date(today.valueOf()+(daysUntilFriday*msInDay));
+        return firday;
     },
     isShabbat: (list, index) => {
         if(list[index].date && new Date(list[index].date).getDay() === 5){//if friday
@@ -48,7 +47,12 @@ const Shabbat = {
 };
 
 function ShabbatMeals({lang, addAlert, shabbats}) {
-    const [shabbat, setShabbat] = useState(null)
+    const [shabbat, setShabbat] = useState(Shabbat.getUpcommingFriday());
+    const onShabbatChange = date => {
+        if(date.getDay()<5) return addAlert({msg:text[lang].alerts.selOnlyShabbat})
+        if(date.valueOf()<new Date().valueOf()) return addAlert({msg:''});
+        setShabbat(date);
+    }
     const [fields, setFields] = useState({
         shabbat:'', night:0, day:0, email:'', phone:'', name:'', donation:0
     });
@@ -69,7 +73,7 @@ function ShabbatMeals({lang, addAlert, shabbats}) {
         }
     }
 
-    return (<Layout title="Shabbat">
+    return (<>
         <div className="shabbat-head-img">
             <div className="w-100 h-100">
                 <h1 className="text-white text-center w-100" style={{fontWeight:800}}>
@@ -82,7 +86,7 @@ function ShabbatMeals({lang, addAlert, shabbats}) {
                 <div className="shabbat-time mx-auto my-4 row">
                     <Icons.ShabbatMeals style={{width:70,height:70,fill:"#dc3546"}} id="candle-img"/>
                     <div className="col-9" style={{display:'grid',placeContent:'center'}}>
-                    {   JSON.stringify(shabbat)
+                    {   
                         // getUpcommingShabbat(shabbats) && (<>
                         // <h4>{getUpcommingShabbat(shabbats).parasha[lang]}</h4>
                         // <p className="p-0 text-danger">{getUpcommingShabbat(shabbats).start}</p>
@@ -92,14 +96,19 @@ function ShabbatMeals({lang, addAlert, shabbats}) {
                     </div>
                 </div>
                 <div className={`form-group ${lang==='he'?'text-right':''}`}>
-                    <label>{text[lang]['shabbat-form'][0]}</label>
-                    <select id="shabbat" className="form-control danger" onChange={onChange}>
+                    <label>{text[lang]['shabbat-form'][0]}</label><br/>
+                    <ReactDatePicker 
+                        className="form-control danger" 
+                        selected={shabbat} 
+                        onChange={onShabbatChange}
+                    />
+                    {/* <select id="shabbat" className="form-control danger" onChange={onChange}>
                     {
                         shabbats.map((v,i)=> <option key={i} value={v.parasha["en"]}>
                             {v.parasha[lang]} - {v.date}
                         </option>)
                     }
-                    </select>
+                    </select> */}
                 </div>
                 {
                     Object.keys(fields).map((k,i)=> i>0 && <div className={`form-group ${lang==='he'?'text-right':''}`} key={i}>
@@ -116,7 +125,7 @@ function ShabbatMeals({lang, addAlert, shabbats}) {
                 </button>
             </form>
         </div>
-    </Layout>)
+    </>)
 }
 
 export async function getStaticProps() {

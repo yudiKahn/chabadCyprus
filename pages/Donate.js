@@ -3,7 +3,7 @@ import text from '../assets/text.json';
 import {ImgTop, Layout} from '../components';
 
 function Donate({lang}){
-    return (<Layout title="Donate">
+    return (<>
         <div style={{minHeight:'100vh'}}>
         <ImgTop title="donate-title"/>
         <div style={{display:'grid',placeContent:'center', marginTop:20}}>
@@ -12,7 +12,7 @@ function Donate({lang}){
             </a>
         </div>
     </div>
-    </Layout>);
+    </>);
 }
 
 export default connect(s=>({lang:s.lang}))(Donate);

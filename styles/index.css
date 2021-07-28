@@ -60,6 +60,43 @@
     color: white;
   }
   
+  .card-custom {
+    overflow: hidden;
+    max-height: 400px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    min-width: 200px;
+    width: 100vw;
+    max-width: 300px;
+  }
+  .card-custom-img {
+    height: 160px;
+    min-height: 160px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+  
+  /* First border-left-width setting is a fallback */
+  .card-custom-img::after {
+    position: absolute;
+    content: '';
+    top: 121px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 40px;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 545px;
+    border-left-width: calc(575px - 5vw);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: inherit;
+  }
+
   /*F*/
   .form-control.danger:focus{
     box-shadow: 0 0 0 0.2rem #dc35462c;
@@ -68,7 +105,13 @@
     border: 2px solid #dc3546;
     border-radius: 20px;
   }
-  
+  .form-control.blue:focus{
+    box-shadow: 0 0 0 0.2rem #5bb2c72c;
+  }
+  .form-control.blue{
+    border: 2px solid var(--blue);
+    border-radius: 20px;
+  }
   /*G*/
   .goto-top{
     width: 60px; height: 60px;
@@ -340,4 +383,4 @@
     width: 100%;
     border-radius: 5px;
     transition: all .25s ease-in-out;
-  }  
+  } 

@@ -1,5 +1,5 @@
 import '../styles/index.css';
-import {Navbar, Footer, Alerts, Spinner, Sidebar} from '../components';
+import {Navbar, Footer, Alerts, Spinner, Sidebar, Layout} from '../components';
 import { useEffect, useReducer, useRef, useState } from 'react';
 //#region redux import
 import {Provider} from 'react-redux';
@@ -25,7 +25,9 @@ function App({ Component, pageProps, ...props }) {
         <Alerts/>
         <Spinner/>
         <Sidebar/>
-        <Component {...pageProps}/>
+        <Layout>
+            <Component {...pageProps}/>
+        </Layout>
         <Footer/>
     </Provider>);
 }

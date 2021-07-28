@@ -1,9 +1,8 @@
-import Layout from "../components/Layout";
 import Link from 'next/link';
 import { connect } from "react-redux";
 
 function Four0Four({lang}) {
-    return (<Layout title="404">
+    return (<>
         <div style={{minHeight:'90vh',display:'grid',placeContent:'center'}}>
             <h4>
                 404&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -15,7 +14,7 @@ function Four0Four({lang}) {
                 </a>
             </Link>
         </div>
-    </Layout>)
+    </>)
 }
 const mapSTP = s => ({
     lang:s.lang

@@ -51,7 +51,7 @@ function Gallery({lang,admin, setLoading}) {
         initImgs.current();
     },[]);
 
-    return (<Layout title="Gallery">
+    return (<>
     <ImgTop title="gallery-title"/>
     {
         admin && <div className="row mx-0 justify-content-center py-1">
@@ -71,7 +71,7 @@ function Gallery({lang,admin, setLoading}) {
             }
         </div>
     </div>
-    </Layout>)
+    </>)
 }
 
 export default connect(s=>({lang:s.lang,admin:s.admin}), {setLoading})(Gallery);

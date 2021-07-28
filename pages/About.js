@@ -1,10 +1,10 @@
 import text from "../assets/text.json";
 import { connect } from "react-redux";
-import { ImgTop, Layout } from "../components";
+import { ImgTop } from "../components";
 
 function About({lang}) {
 
-    return (<Layout title="About">
+    return (<>
         <ImgTop title="about-title"/>
         <div className="container py-2" style={{minHeight:'100vh'}}>
         <div className="row mx-0" style={{height:200}}>
@@ -17,7 +17,7 @@ function About({lang}) {
             </p>
         </div>
     </div>
-    </Layout>)
+    </>)
 }
 
 export default connect(s=>({lang:s.lang}))(About);

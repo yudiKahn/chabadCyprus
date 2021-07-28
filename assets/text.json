@@ -1,4 +1,12 @@
 {
+    "Info":{
+        "en":{
+            "title":"Traveller Information"
+        },
+        "he":{
+            "title":"מידע למטייל"
+        }
+    },
     "en":{
         "links":["Home","Shabbat Meals","About","Donate","Gallery","More","Prayer Times","Kosher Food"],
         "welcome": "WELCOME TO CHABAD OF AYIA NAPA",
