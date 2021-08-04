@@ -10,7 +10,7 @@ function Info({lang}) {
         <ImgTop title={text[lang].title}/>
         <div className="container py-3">
             <div className={`row mx-0 py-1 ${lang==='he'&&'justify-content-end'}`}>
-                <select className="form-control blue col-2" id="catSelect" value={category} onChange={e=>setCategory(e.target.value)}>
+                <select className="form-control blue col-6" id="catSelect" value={category} onChange={e=>setCategory(e.target.value)}>
                     <option selected value={''}>{text[lang].select}</option>
                 {
                     Object.values(categories).map((v,i) => <option value={v[lang]} key={i}>#{v[lang]}</option>)

@@ -2,7 +2,7 @@ import {createStore} from 'redux';
 import * as T from './types';
 
 const initialState = {
-    admin: null,
+    admin: (typeof window === 'undefined' ? null:localStorage.getItem('admin')) || null,
     alerts: [],
     lang: 'he',
     loading: false,

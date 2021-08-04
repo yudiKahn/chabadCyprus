@@ -5,7 +5,7 @@ function handler(req,res){
             const body = JSON.parse(req.body);
         
             for(let i=0; i<admins.length;i++){
-                if(body.email === admins[i].email && body.password === admins[i].password || body.token === admins[i].id){
+                if(body.email === admins[i].email && body.password === admins[i].password){
                     return res.json({data:'ok',token: admins[i].id});
                 }
             }
@@ -16,14 +16,3 @@ function handler(req,res){
 }
 
 export default handler;
-
-export function adminMiddleware(req,res,next){
-    if(req.headers['x-admin-header']){
-        const admins = eval(process.env.ADMIN);
-        for(let i=0;i<admins.length;i++){
-            if(admins[i].id === req.headers['x-admin-header'])
-                return next();
-        }
-    }
-    throw new Error('Unauthorized');
-}

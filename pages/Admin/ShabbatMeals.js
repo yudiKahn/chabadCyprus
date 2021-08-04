@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import Layout from "../../components/Layout";
 
 function ShabbatMeals({adminHeader, admin}) {
     const [users, setUsers] = useState([]);
@@ -14,7 +13,7 @@ function ShabbatMeals({adminHeader, admin}) {
         }
     },[]);
 
-    return (<Layout title="Admin">
+    return (<>
         <div className="container" style={{minHeight:'100vh'}}>
             <table className="table table-striped table-dark table-bordered">
                 <thead>
@@ -45,7 +44,7 @@ function ShabbatMeals({adminHeader, admin}) {
                 </tbody>
             </table>
         </div>
-    </Layout>)
+    </>)
 }
 
 export default connect(s=>({admin:s.admin, adminHeader:s.adminHeader}))(ShabbatMeals);

@@ -7,7 +7,10 @@ import Sidebar from "./Sidebar";
 import Spinner from "./Spinner";
 import ImgTop from './ImgTop';
 import Card from "./Card";
+import AdminLogin from "./AdminLogin";
+import Weather from "./Weather";
 
 export {
-    Alerts, Footer, Icons, Layout, Navbar, Sidebar, Spinner, ImgTop, Card
+    Alerts, Footer, Icons, Layout, Navbar, Sidebar, Spinner, ImgTop, Card, AdminLogin,
+    Weather
 }

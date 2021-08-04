@@ -13,7 +13,7 @@ export const Info = {
                 categories:[infoCateg.FOR_KIDS.en, infoCateg.FOR_ADULTS.en, infoCateg.FAMILY.en],
                 title:"Chabbad House",
                 text:"Chabbad House Napa",
-                img:"http://localhost:3000/chabbadHouse.jpg",
+                img:"https://chabbad-cyprus.herokuapp.com/chabbadHouse.jpg",
                 link:"/"
             },{
                 categories:[infoCateg.FAMILY.en, infoCateg.BEACH.en],
@@ -104,7 +104,7 @@ export const Info = {
                     categories:[infoCateg.FOR_ADULTS.he, infoCateg.FOR_KIDS.he, infoCateg.FAMILY.he],
                     title:"בית חב\"ד",
                     text:"בית חב\"ד",
-                    img:"http://localhost:3000/chabbadHouse.jpg",
+                    img:"https://chabbad-cyprus.herokuapp.com/chabbadHouse.jpg",
                     link:"/"
                 },{
                     categories:[infoCateg.FAMILY.he, infoCateg.BEACH.he],
@@ -343,5 +343,16 @@ export const Food = {
         shabbatFood:['חלה','דג','3 סלטים','עוף / בשר','תפו\"א / אורז'],
         cost:"מחיר",
         costs:['ארוחות שבת לאדם - 50 ','ארוחה בודדת לאדם - 27','הוספת יין - 9 ']
+    }
+}
+
+export const Donate = {
+    en:{
+        title:"Donate",
+        btn:"Go to Website"
+    },
+    he:{
+        title:"תרום",
+        btn:"עבור לאתר"
     }
 }

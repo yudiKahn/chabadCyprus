@@ -96,7 +96,13 @@
     border-bottom-color: transparent;
     border-left-color: inherit;
   }
+/*D*/
+.donate-frame{
+  width: 90vw;
+  height: 100vh;
+  border: none;
 
+}
   /*F*/
   .form-control.danger:focus{
     box-shadow: 0 0 0 0.2rem #dc35462c;
