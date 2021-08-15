@@ -2,7 +2,8 @@ export const infoCateg = {
     FOR_KIDS:{en:"kids",he:"ילדים"},
     FOR_ADULTS:{en:"adults",he:"מבוגרים"},
     BEACH:{en:"beach",he:"חוף"},
-    FAMILY:{en:"family",he:"משפחתי"}
+    FAMILY:{en:"family",he:"משפחתי"},
+    TRAVEL_GUIDE:{en:"Travel Guide",he:"מדריך טיולים"}
 }
 
 export const Info = {
@@ -93,6 +94,20 @@ export const Info = {
                 text:"Paranoia Room",
                 img:"https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.6435-9/70865880_1160056197532958_356383436895682560_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=973b4a&_nc_ohc=orSodMZL-rsAX91qZgy&_nc_ht=scontent.ftlv1-1.fna&oh=1845695d2df8a8f6d48a136622bbac52&oe=61254B6D",
                 link:""
+            },
+            {
+                categories:[infoCateg.TRAVEL_GUIDE.en],
+                title:"Ofir",
+                text:"",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
+                link:"https://api.whatsapp.com/send/?phone=35799726965&text&app_absent=0"
+            },
+            {
+                categories:[infoCateg.TRAVEL_GUIDE.en],
+                title:"Shemouel gold",
+                text:"",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
+                link:"https://api.whatsapp.com/send/?phone=35796219050&text&app_absent=0"
             }
         ],
         select:"Show All"
@@ -184,6 +199,20 @@ export const Info = {
                     text:"פארנויה מבוך אימה בערב",
                     img:"https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.6435-9/70865880_1160056197532958_356383436895682560_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=973b4a&_nc_ohc=orSodMZL-rsAX91qZgy&_nc_ht=scontent.ftlv1-1.fna&oh=1845695d2df8a8f6d48a136622bbac52&oe=61254B6D",
                     link:""
+                },
+                {
+                    categories:[infoCateg.TRAVEL_GUIDE.he],
+                    title:"מדריך אופיר שרון",
+                    text:"",
+                    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
+                    link:"https://api.whatsapp.com/send/?phone=35799726965&text&app_absent=0"
+                },
+                {
+                    categories:[infoCateg.TRAVEL_GUIDE.he],
+                    title:"שמואל גולד מדריך לרנקה",
+                    text:"",
+                    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
+                    link:"https://api.whatsapp.com/send/?phone=35796219050&text&app_absent=0"
                 }
         ],
         select:"הצג הכל"

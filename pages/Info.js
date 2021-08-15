@@ -18,7 +18,8 @@ function Info({lang}) {
                 </select>
             </div>
             <div className="row mx-0"  style={{placeContent:'center'}}>
-            { text[lang].items.map((v,i)=> (category ? Array.from(v.categories).includes(category) :true) && <Card key={i} title={v.title} text={v.text} img={v.img} link={v.link}/>)}
+            { text[lang].items.map((v,i)=> (category ? Array.from(v.categories).includes(category) :true) && 
+            <Card key={i} title={v.title} text={v.text} img={v.img} link={v.link}/>)}
             </div>
         </div>
     </>)

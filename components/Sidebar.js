@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Contact, Food, Hotels } from "./Icons";
+import { Contact, Food, Hotels,Em } from "./Icons";
 import Link from 'next/link';
 
 function Sidebar(){
@@ -45,8 +45,8 @@ function Sidebar(){
         </div>
         <div className={`row mx-0 sidebar ${isActive ? 'show' : 'hide'}`}>
             <div className="col">
-                <Link href="/Contact">
-                    <span><Contact className="sidebar-icon"/></span>
+                <Link href="/Info">
+                    <span><Em className="sidebar-icon"/></span>
                 </Link>
             </div>
             <div className="col">
