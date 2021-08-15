@@ -14,6 +14,7 @@ function index({admin, setAdmin, setLoading, addAlert}) {
             let resp = await fetch('/api/admin', {method:'POST', body: JSON.stringify(fields) });
             let data = await resp.json();
             setAdmin(resp.ok ? data.token : null);
+            if(!resp.ok) throw new Error(data.data);
         } catch (err) {
             addAlert({msg:err.message})
         } setLoading(false);
@@ -22,8 +23,9 @@ function index({admin, setAdmin, setLoading, addAlert}) {
     return (<>
     <ImgTop title={`Admin ${admin?'':'Login'}`}/>
     {
-        admin ? (<div>
-            <h1 className="text-center">היי זושא</h1>
+        admin ? (<div className="text-center py-4">
+            <h1>&#128540; היי זושא</h1>
+            <button onClick={()=>setAdmin(null)} className="btn btn-blue">LOGOUT</button>
         </div>) : <AdminLogin email={fields.email} password={fields.password} onChange={onFieldsChange} onSubmit={onSubmit}/>
     }
     </>)

@@ -356,3 +356,12 @@ export const Donate = {
         btn:"עבור לאתר"
     }
 }
+
+export const ShabbatMeals = {
+    en:{
+        title:"SHABBAT MEALS"
+    },
+    he:{
+        title:"ארוחות שבת"
+    }
+}

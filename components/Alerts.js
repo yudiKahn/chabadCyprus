@@ -20,7 +20,7 @@ function Alerts({alerts, clearAlert,lang}) {
               <strong>
                 <i className={`fa fa-${v.type==='success'?'check-circle':'exclamation-circle'}`}></i>
               </strong> 
-              {v.msg}
+              &nbsp;{v.msg}
               <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={()=>clearAlert(i)}>
                 <span aria-hidden="true">&times;</span>
               </button>

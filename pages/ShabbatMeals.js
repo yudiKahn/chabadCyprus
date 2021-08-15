@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import text from '../assets/text.json';
-import { Icons } from '../components';
+import {ShabbatMeals as text} from '../assets/text';
+import { Icons, ImgTop } from '../components';
 import { connect } from 'react-redux';
 import {addAlert} from '../redux/actions';
+
+function ShabbatMeals({lang,addAlert}){
+    return(<>
+        <ImgTop title={text[lang].title}/>
+        <iframe className="donate-frame" src="https://reg.koshertraveling.co/ayi/f/"></iframe>
+    </>)
+}
+
+export default connect(s=>({lang:s.lang}), {addAlert})(ShabbatMeals);
+
+/*
 import ReactDatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
 const Shabbat = {
     formatShabbatsList: (list) => {
         const now = new Date().valueOf();
@@ -102,44 +112,38 @@ function ShabbatMeals({lang, addAlert, shabbats}) {
                         selected={shabbat} 
                         onChange={onShabbatChange}
                     />
-                    {/* <select id="shabbat" className="form-control danger" onChange={onChange}>
+                  
+                    </div>
                     {
-                        shabbats.map((v,i)=> <option key={i} value={v.parasha["en"]}>
-                            {v.parasha[lang]} - {v.date}
-                        </option>)
+                        Object.keys(fields).map((k,i)=> i>0 && <div className={`form-group ${lang==='he'?'text-right':''}`} key={i}>
+                        <label htmlFor={k}>
+                            {text[lang]['shabbat-form'][i].split('~')[0]}
+                            <small> {text[lang]['shabbat-form'][i].split('~')[1]}</small>
+                        </label>
+                        <input id={k} type={/email/.test(k)?'email':/(day|night|donation)/.test(k)?'number':'text'} className="form-control danger" value={fields[k]} onChange={onChange}/>
+                        </div>)
                     }
-                    </select> */}
-                </div>
-                {
-                    Object.keys(fields).map((k,i)=> i>0 && <div className={`form-group ${lang==='he'?'text-right':''}`} key={i}>
-                    <label htmlFor={k}>
-                        {text[lang]['shabbat-form'][i].split('~')[0]}
-                        <small> {text[lang]['shabbat-form'][i].split('~')[1]}</small>
-                    </label>
-                    <input id={k} type={/email/.test(k)?'email':/(day|night|donation)/.test(k)?'number':'text'} className="form-control danger" value={fields[k]} onChange={onChange}/>
-                    </div>)
-                }
-                <button className="btn btn-danger btn-block" onClick={onsubmit}>
-                    {text[lang]['submit']}&nbsp;&nbsp;
-                    <small>&euro; {(Number(fields.night)+Number(fields.day))*18 + Number(fields.donation)}</small>
-                </button>
-            </form>
-        </div>
-    </>)
-}
-
-export async function getStaticProps() {
-    let res = {props: { shabbats:[], city:'' }};
-    try {
-        let resp = await fetch('https://www.hebcal.com/hebcal?v=1&cfg=json&year=now&ss=on&c=on&geo=city&city=CY-Nicosia&m=50&s=on')
-        if(!resp.ok) throw new Error();
-        let data = await resp.json();
-        res.props.shabbats = Shabbat.formatShabbatsList(data.items);
-        res.props.city = data.location.title;
-    } catch (err) {
-        
+                    <button className="btn btn-danger btn-block" onClick={onsubmit}>
+                        {text[lang]['submit']}&nbsp;&nbsp;
+                        <small>&euro; {(Number(fields.night)+Number(fields.day))*18 + Number(fields.donation)}</small>
+                    </button>
+                </form>
+            </div>
+        </>)
     }
-    return res;
-}
-
-export default connect(s=>({lang:s.lang}), {addAlert})(ShabbatMeals);
+    
+    export async function getStaticProps() {
+        let res = {props: { shabbats:[], city:'' }};
+        try {
+            let resp = await fetch('https://www.hebcal.com/hebcal?v=1&cfg=json&year=now&ss=on&c=on&geo=city&city=CY-Nicosia&m=50&s=on')
+            if(!resp.ok) throw new Error();
+            let data = await resp.json();
+            res.props.shabbats = Shabbat.formatShabbatsList(data.items);
+            res.props.city = data.location.title;
+        } catch (err) {
+            
+        }
+        return res;
+    }
+    
+*/
