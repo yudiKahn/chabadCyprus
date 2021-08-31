@@ -29,12 +29,6 @@ function Home({lang}) {
                     <p className="mb-0 mt-4">{text[lang].info[0]}</p>
                 </div>
             </Link>
-            <Link href="/Contact">
-                <div className="col info-icon py-4 m-3">
-                    <Icons.Contact style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
-                    <p className="mb-0 mt-4">{text[lang].info[1]}</p>
-                </div>
-            </Link>
             <Link href="/Food">
                 <div className="col info-icon py-4 m-3">
                     <Icons.Food style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
@@ -51,6 +45,12 @@ function Home({lang}) {
                 <div className="col info-icon py-4 m-3">
                     <i style={{fontSize:90,color:'var(--blue)'}} className="icon fa fa-exclamation"></i>
                     <p className="mb-0 mt-4">{text[lang].info[4]}</p>
+                </div>
+            </Link>
+            <Link href="/Contact">
+                <div className="col info-icon py-4 m-3">
+                    <Icons.Contact style={{width:90,height:90,fill:'var(--blue)'}} className="icon"/>
+                    <p className="mb-0 mt-4">{text[lang].info[1]}</p>
                 </div>
             </Link>
         </div>

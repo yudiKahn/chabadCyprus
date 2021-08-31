@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Contact, Food, Hotels,Em } from "./Icons";
+import { Contact, Food, Hotels,Em, Donate } from "./Icons";
 import Link from 'next/link';
 
 function Sidebar(){
@@ -40,10 +40,12 @@ function Sidebar(){
             display:grid; place-content:center; height:50px;
         }
         `}</style>
-        <div className="sidebar-btn" onClick={()=> setActive(!isActive)}>
-            <i className="btn btn-fill-blue fa fa-link fa-2x"></i>
-        </div>
-        <div className={`row mx-0 sidebar ${isActive ? 'show' : 'hide'}`}>
+        <Link href="/Donate">
+        <a className="sidebar-btn">
+            <img className="btn btn-fill-blue" src="/donation.svg" alt="donate"/>
+        </a>
+        </Link>
+        {/* <div className={`row mx-0 sidebar ${isActive ? 'show' : 'hide'}`}>
             <div className="col">
                 <Link href="/Info">
                     <span><Em className="sidebar-icon"/></span>
@@ -59,7 +61,7 @@ function Sidebar(){
                     <span><Hotels className="sidebar-icon"/></span>
                 </Link>
             </div>
-        </div>
+        </div> */}
     </>)
 }
 
