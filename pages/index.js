@@ -7,7 +7,7 @@ import React from 'react';
 function Home({lang}) {
     return (<>
         <section className="bg-img">
-            <div className="w-100 h-100 px-3" style={lang==='he'?{justifyContent:'flex-end'}:{}}>
+            <div className="text w-100 h-100 px-3" style={lang==='he'?{justifyContent:'flex-end'}:{}}>
                 <span style={lang==='he'?{textAlign:'end'}:{}}>
                     <h1>{text[lang].welcome}</h1>
                     <a className="btn btn-fill-blue mx-1" target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=+35796640980&text=Hello">
@@ -54,6 +54,11 @@ function Home({lang}) {
                 </div>
             </Link>
         </div>
+        <section className="video-container">
+            <video playsInline controls loop>
+                <source src="/ayianapa.mp4" type="video/mp4"/>
+            </video>
+        </section>
         <section className="contact row mx-0 justify-content-center">
             <div className="col" style={{ minWidth: 300, maxWidth: 300 }}>
                 <div className="row mx-0">

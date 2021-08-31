@@ -35,6 +35,7 @@
   .bg-img{
     width: 100%;
     height: 80vh;
+    position: relative;
     background-image: url('../assets/bg.jpg');
     background-attachment: fixed;
     background-position: top;
@@ -51,6 +52,7 @@
     font-size: 50px;
     text-shadow: 0 2px 4px rgba(0,0,0,.8);
     font-weight: 800;
+    z-index: 100;
   }
   /*C*/
   .c-p{ cursor: pointer;}
@@ -265,6 +267,16 @@
     top: 0; right: 0; cursor: col-resize;
     background-color: var(--blue);
   }
+/*V*/
+.video-container{
+  width: 100%;
+  height: 400px;
+  margin: 10px;
+}
+.video-container video{
+  width: 100%;
+  height: 100%;
+}
   .map{
     width: 100%;
     height: 400px;
