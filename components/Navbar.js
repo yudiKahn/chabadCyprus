@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import text from '../assets/text.json';
+import {Navbar as text} from '../assets/text';
 import { setLang } from '../redux/actions';
 import { connect } from 'react-redux';
 
@@ -47,6 +47,16 @@ function Navbar({lang, setLang}) {
                         <li className="nav-item">
                             <Link href="/Donate">
                                 <a className="nav-link">{text[lang].links[3]}</a>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link href="/Info">
+                                <a className="nav-link">{text[lang].links[5]}</a>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link href="/Hotels">
+                                <a className="nav-link">{text[lang].links[6]}</a>
                             </Link>
                         </li>
                         <li className="nav-item">
