@@ -9,8 +9,9 @@ import ImgTop from './ImgTop';
 import Card from "./Card";
 import AdminLogin from "./AdminLogin";
 import Weather from "./Weather";
+import * as Popups from './Popups'
 
 export {
     Alerts, Footer, Icons, Layout, Navbar, Sidebar, Spinner, ImgTop, Card, AdminLogin,
-    Weather
+    Weather, Popups
 }

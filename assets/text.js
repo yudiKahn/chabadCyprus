@@ -1,109 +1,111 @@
 export const infoCateg = {
-    PLACE_TO_TRAVEL:{en:"places to travel", he:'מקומות שכדאי לטייל'},
-    BEACH:{en:"Recommended beaches",he:'חופים מומלצים'},
-    ATTRACTION:{en:'attractions', he:'אטרקציות'},
-    transportation:{en:'transportation', he:'תחבורה'},
-    COVID:{en:'COVID19 test/pcr',he:'בדיקות קורונה/PCR'},
-    travelGuides:{en:'travel guides',he:'מדריכי טיולים'}
+    PLACE_TO_TRAVEL:"location-love.svg",
+    BEACH:"beach.svg",
+    ATTRACTION:'attraction.svg',
+    transportation:'transportation.svg',
+    COVID:'covid-test.svg',
+    travelGuides:'travel-guide.svg'
 }
 export const Info = {
     "en":{
+        no_info:"No info",
+        more_info:"For more information",
         title:"Traveller Information",
         items:[
             {
-                categories:[infoCateg.PLACE_TO_TRAVEL.en, infoCateg.COVID.en],
+                categories:[infoCateg.PLACE_TO_TRAVEL, infoCateg.COVID],
                 title:"Chabbad House",
                 text:"Chabbad House Napa",
                 img:"https://chabbad-cyprus.herokuapp.com/chabbadHouse.jpg",
                 link:"/"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Love bridge",
                 text:"Love Bridge",
                 img:"https://www.swedishnomad.com/wp-content/images/2019/01/Cape-Greco.jpg",
                 link:"https://www.google.com/maps/place/Love+Bridge,+Kryou+Nerou,+Ayia+Napa/data=!4m2!3m1!1s0x14dfc51e064a366b:0x3ba4e0221f66ee28?utm_source=mstt_1&entry=gps"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Sea Cave",
                 text:"Sea Cave",
                 img:"https://previews.123rf.com/images/kirillm/kirillm1603/kirillm160300118/56221136-sea-caves-near-ayia-napa-cyprus-.jpg",
                 link:"https://maps.app.goo.gl/a4moDLMZxd46HhMh6"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Cape gkreko",
                 text:"Cape gkreko",
                 img:"https://www.visitcyprus.com/media/k2/items/cache/463052dad9377fe2445d3b1bfb5f62a3_XL.jpg",
                 link:"https://maps.app.goo.gl/yCe5u38KdZwjs69U6"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Nissi beach",
                 text:"Nissi beach",
                 img:"https://cf.bstatic.com/xdata/images/hotel/max1280x900/215627009.jpg?k=3cea07e0ac5700c9cf8c69be80bb77fc60289cb10b61f0b068c2e124e9a1ad6a&o=&hp=1",
                 link:"https://maps.app.goo.gl/U8qpPW8n3aqVQDSc6"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Konnos Beach",
                 text:"Konnos Beach",
                 img:"https://www.swedishnomad.com/wp-content/images/2019/08/Konnos-Bay.jpg",
                 link:"https://maps.app.goo.gl/r99CYSr3oMGWFfM26"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Fig Tree bay",
                 text:"Fig tree Bay",
                 img:"https://media-cdn.tripadvisor.com/media/photo-s/03/ab/21/12/fig-tree-bay.jpg",
                 link:"https://maps.app.goo.gl/kTnPLXexnKcSVgCeA"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"The yellow submarine",
                 text:"yellow submarine",
                 img:"https://luxcyservices.com/wp-content/uploads/2019/12/unnamed.jpg",
                 link:"https://www.google.com/maps/place/Yellow+Submarine/@34.9821551,34.0027016,15z/data=!4m5!3m4!1s0x0:0xea9c109a55dd9a80!8m2!3d34.9821551!4d34.0027016?hl=en-GB"
             },{  
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Water park",
                 text:"water park",
                 img:"https://media.tacdn.com/media/attractions-splice-spp-674x446/07/2e/cc/07.jpg",
                 link:"https://www.google.com/maps/place/WaterWorld+Themed+Waterpark+Ayia+Napa/@34.9037151,32.0777446,8z/data=!4m9!1m2!2m1!1scyprus+water+park!3m5!1s0x14dfcfd9892f6d31:0x88b8b1ccaccc0bea!8m2!3d34.985092!4d33.943439!15sChFjeXBydXMgd2F0ZXIgcGFya1oTIhFjeXBydXMgd2F0ZXIgcGFya5IBCndhdGVyX3BhcmuaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUjNPWEJRU0U5M0VBRQ?hl=en-GB"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Undersea Adventure",
                 text:"Undersea Adventure",
                 img:"http://underseawalkers.com/wp-content/uploads/2019/04/logo-final.png",
                 link:"https://www.google.com/maps/place/UNDERSEA+ADVENTURES/@35.0513996,34.0236159,15z/data=!4m5!3m4!1s0x0:0x195555e0daba64da!8m2!3d35.0513996!4d34.0236159"
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"Ocean Aquarium",
                 text:"Ocean Aquarium",
                 img:"https://cdn.ventrata.com/image/upload/c_fill,h_400,w_600/q_auto/v1557921556/Ocean-Aquarium-Cyprus41_felqee.jpg",
                 link:""
             },{
-                categories:[infoCateg.BEACH.en, infoCateg.PLACE_TO_TRAVEL.en],
+                categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                 title:"‪Nissi Watersports‬",
                 text:"‪Nissi Watersports‬, Parachuteת Jet Ski",
                 img:"https://www.partyhardtravel.com/wp-content/uploads/water-sports1-1024x683.jpg",
                 link:""
             },{
-                categories:[infoCateg.ATTRACTION.en],
+                categories:[infoCateg.ATTRACTION],
                 title:"Marrakech Spa",
                 text:"Marrakech Spa",
                 img:"https://media-cdn.tripadvisor.com/media/photo-s/04/48/74/d2/marrakech-spa.jpg",
                 link:""
             },{
-                categories:[infoCateg.ATTRACTION.en],
+                categories:[infoCateg.ATTRACTION],
                 title:"Paranoia Room",
                 text:"Paranoia Room",
                 img:"https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.6435-9/70865880_1160056197532958_356383436895682560_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=973b4a&_nc_ohc=orSodMZL-rsAX91qZgy&_nc_ht=scontent.ftlv1-1.fna&oh=1845695d2df8a8f6d48a136622bbac52&oe=61254B6D",
                 link:""
             },
             {
-                categories:[infoCateg.travelGuides.en],
+                categories:[infoCateg.travelGuides],
                 title:"Ofir",
                 text:"",
                 img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
                 link:"https://api.whatsapp.com/send/?phone=35799726965&text&app_absent=0"
             },
             {
-                categories:[infoCateg.travelGuides.en],
+                categories:[infoCateg.travelGuides],
                 title:"Shemouel gold",
                 text:"",
                 img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
@@ -112,102 +114,138 @@ export const Info = {
         ]
     },
     "he":{
+        no_info:"אין מידע",
+        more_info:"למידע נוסף",
         "title":"מידע למטייל",
         "items":[
                 {
-                    categories:[infoCateg.PLACE_TO_TRAVEL.he, infoCateg.COVID.he],
+                    categories:[infoCateg.PLACE_TO_TRAVEL, infoCateg.COVID],
                     title:"בית חב\"ד",
-                    text:"בית חב\"ד",
+                    info:`בדיקות PCR
+                    בבית חב'ד נערכות בדיקות מעבדה
+                    בימים ג-ה בשעה 16:00 בהזמנה מראש בלבד
+                    
+                    עלות בדיקה 40 יורו.
+                    הבדיקה מתנהלת מול מעבדה והם גובים ואחראים לשליחת התוצאות (שמגיעות בדרך כלל עד 24 שעות)
+                    נציגי המעבדה יסבירו לכם איך להגיע לתוצאות (זהו ברקוד שמקבלים באתר של הממשלה)
+                    
+                    בית חב"ד רק מנגישים לישראלים
+                    
+                    להרשמה 
+                    0035796640980
+                    
+                    מידע על כניסה ויציאה - קפריסין. (נכון לתאריך 29.04.21)
+                    
+                    ישראל אדומה בקטגוריה האירופאית.
+                    
+                    כדי להכנס לשדה התעופה בישראל צריך: תעודת חיסון/מחלים.
+                    
+                    בוך 24 שעות של הטיסה לקפריסין צריך למלא טופס פלייפאס של מדינת קפריסין הלינק הבא:
+                    
+                    https://cyprusflightpass.gov.cy/
+                    (יש למלא לכל נוסע בנפרד)
+                    
+                    הנכנסים מאירופה אינם צריכים בדיקת PCR בכניסה לקפריסין אלא טופס פלאי פאס
+                    
+                    בחזור מקפריסין לישראל צריך לעשות בדיקת קורונה בתוך 72 שעות לפני המראה בעלות של 40 יורו. ובידוד לפי ההנחיות של ישראל.
+                    בית חב"ד יכול לארגן בדיקות בבית חב"ד.
+                    
+                    בנחיתה מחוייבים לעשות בדיקה נוספת בעלות. אם אתם רוצים לחסוך 20 שח תזמינו וותשלמו מראש הלינק:
+                    https://check2fly.co.il/auth
+                    
+                    בעיקרון אין הגבלות יותר מידי בקפריסין. ועל תיירים הם לא מקפידים כלל.
+                    
+                    מי שמגיע לפחות מ72 שעות לקפריסין לא צריך בדיקה בקפריסין כשהוא חוזר לישראל.`,
                     img:"https://chabbad-cyprus.herokuapp.com/chabbadHouse.jpg",
                     link:"/"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"גשר אהבה",
                     text:"Love Bridge",
                     img:"https://www.swedishnomad.com/wp-content/images/2019/01/Cape-Greco.jpg",
                     link:"https://www.google.com/maps/place/Love+Bridge,+Kryou+Nerou,+Ayia+Napa/data=!4m2!3m1!1s0x14dfc51e064a366b:0x3ba4e0221f66ee28?utm_source=mstt_1&entry=gps"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"המערות",
                     text:"Sea Cave",
                     img:"https://previews.123rf.com/images/kirillm/kirillm1603/kirillm160300118/56221136-sea-caves-near-ayia-napa-cyprus-.jpg",
                     link:"https://maps.app.goo.gl/a4moDLMZxd46HhMh6"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"קייפ גרקו",
                     text:"Cape gkreko",
                     img:"https://lh5.googleusercontent.com/p/AF1QipNAWqRah_yOi_H6LEhe7c8eAAj8E-_3UYHIwS0Z=w408-h306-k-no",
                     link:"https://maps.app.goo.gl/yCe5u38KdZwjs69U6"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"חוף ניסי",
                     text:"Nissi beach",
                     img:"https://cf.bstatic.com/xdata/images/hotel/max1280x900/215627009.jpg?k=3cea07e0ac5700c9cf8c69be80bb77fc60289cb10b61f0b068c2e124e9a1ad6a&o=&hp=1",
                     link:"https://maps.app.goo.gl/U8qpPW8n3aqVQDSc6"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"חוף קונוס",
                     text:"Konnos Beach",
                     img:"https://www.swedishnomad.com/wp-content/images/2019/08/Konnos-Bay.jpg",
                     link:"https://maps.app.goo.gl/r99CYSr3oMGWFfM26"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"מפרץ עץ התאנה",
                     text:"Fig tree Bay",
                     img:"https://media-cdn.tripadvisor.com/media/photo-s/03/ab/21/12/fig-tree-bay.jpg",
                     link:"https://maps.app.goo.gl/kTnPLXexnKcSVgCeA"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"הצוללת הצהובה",
                     text:"yellow submarine",
                     img:"https://luxcyservices.com/wp-content/uploads/2019/12/unnamed.jpg",
                     link:"https://www.google.com/maps/place/Yellow+Submarine/@34.9821551,34.0027016,15z/data=!4m5!3m4!1s0x0:0xea9c109a55dd9a80!8m2!3d34.9821551!4d34.0027016?hl=en-GB"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"פארק המים",
                     text:"water park",
                     img:"https://media.tacdn.com/media/attractions-splice-spp-674x446/07/2e/cc/07.jpg",
                     link:"https://www.google.com/maps/place/WaterWorld+Themed+Waterpark+Ayia+Napa/@34.9037151,32.0777446,8z/data=!4m9!1m2!2m1!1scyprus+water+park!3m5!1s0x14dfcfd9892f6d31:0x88b8b1ccaccc0bea!8m2!3d34.985092!4d33.943439!15sChFjeXBydXMgd2F0ZXIgcGFya1oTIhFjeXBydXMgd2F0ZXIgcGFya5IBCndhdGVyX3BhcmuaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUjNPWEJRU0U5M0VBRQ?hl=en-GB"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"צלילה בקסדות",
                     text:"צלילה בקסדות מגיל 7",
                     img:"http://underseawalkers.com/wp-content/uploads/2019/04/logo-final.png",
                     link:"https://www.google.com/maps/place/UNDERSEA+ADVENTURES/@35.0513996,34.0236159,15z/data=!4m5!3m4!1s0x0:0x195555e0daba64da!8m2!3d35.0513996!4d34.0236159"
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"אקווריום",
                     text:"Ocean Aquarium",
                     img:"https://cdn.ventrata.com/image/upload/c_fill,h_400,w_600/q_auto/v1557921556/Ocean-Aquarium-Cyprus41_felqee.jpg",
                     link:""
                 },{
-                    categories:[infoCateg.BEACH.he, infoCateg.PLACE_TO_TRAVEL.he],
+                    categories:[infoCateg.BEACH, infoCateg.PLACE_TO_TRAVEL],
                     title:"‪ספורט ימי",
                     text:"‪מצנח רחיפה, אופנוע ים",
                     img:"https://www.partyhardtravel.com/wp-content/uploads/water-sports1-1024x683.jpg",
                     link:""
                 },{
-                    categories:[infoCateg.ATTRACTION.he],
+                    categories:[infoCateg.ATTRACTION],
                     title:"ספא מרוקאי",
                     text:"חמאם מרוקאי + מסאז'",
                     img:"https://media-cdn.tripadvisor.com/media/photo-s/04/48/74/d2/marrakech-spa.jpg",
                     link:""
                 },{
-                    categories:[infoCateg.ATTRACTION.he],
+                    categories:[infoCateg.ATTRACTION],
                     title:"פארנויה מבוך אימה",
                     text:"פארנויה מבוך אימה בערב",
                     img:"https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.6435-9/70865880_1160056197532958_356383436895682560_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=973b4a&_nc_ohc=orSodMZL-rsAX91qZgy&_nc_ht=scontent.ftlv1-1.fna&oh=1845695d2df8a8f6d48a136622bbac52&oe=61254B6D",
                     link:""
                 },
                 {
-                    categories:[infoCateg.travelGuides.he],
+                    categories:[infoCateg.travelGuides],
                     title:"מדריך אופיר שרון",
                     text:"",
                     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",
                     link:"https://api.whatsapp.com/send/?phone=35799726965&text&app_absent=0"
                 },
                 {
-                    categories:[infoCateg.travelGuides.he],
+                    categories:[infoCateg.travelGuides],
                     title:"שמואל גולד מדריך לרנקה",
                     text:"",
                     img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tT0y827iUlT6zwesRThwr3buq9OZO7JIX_E2kAnk5MYRBciIQDomVicKpwf4bkU07Uc&usqp=CAU",

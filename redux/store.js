@@ -6,12 +6,15 @@ const initialState = {
     alerts: [],
     lang: 'he',
     loading: false,
-    adminHeader:{'x-admin-header': typeof window === 'undefined' ? "":localStorage.getItem('admin')}
+    adminHeader:{'x-admin-header': typeof window === 'undefined' ? "":localStorage.getItem('admin')},
+    popup:null,
 }
 
 function reducer(state=initialState, action){
     const {type, payload} = action;
     switch (type){
+        case T.SET_POPUOP:
+            return {...state, popup: payload};
         case T.SET_ADMIN:
             localStorage.setItem('admin', payload);
             return {...state, admin: payload};

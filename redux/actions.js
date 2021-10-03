@@ -5,6 +5,10 @@ export const setLang = (lang) => ({
     payload:lang
 });
 
+/**
+ * 
+ * @param {{type:"success"|"warning"|"primary"|"danger", msg:string, isInfo?:boolean}} alertObj 
+ */
 export const addAlert = (alertObj) => ({
     type:T.SET_ALERT,
     payload:alertObj
@@ -25,4 +29,9 @@ export const setAdmin = (admin) => admin === null ? ({
 }) : ({
     type:T.SET_ADMIN,
     payload:admin
+});
+
+export const setPopup = (jsx) => ({
+    type:T.SET_POPUOP,
+    payload:jsx
 });
