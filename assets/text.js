@@ -1,11 +1,36 @@
 export const infoCateg = {
-    PLACE_TO_TRAVEL:"location-love.svg",
-    BEACH:"beach.svg",
-    ATTRACTION:'attraction.svg',
-    transportation:'transportation.svg',
-    COVID:'covid-test.svg',
-    travelGuides:'travel-guide.svg'
+    PLACE_TO_TRAVEL:{
+        i:"fas fa-route",
+        l:"places-to-travel",
+        txt:{en:"places-to-travel",he:"מקומות יפים לראות"}
+    },
+    BEACH:{
+        i:"fas fa-umbrella-beach",
+        l:"beach",
+        txt:{en:"beach",he:"חופים מומלצים"}
+    },
+    ATTRACTION:{
+        i:'fas fa-tram',
+        l:"attraction",
+        txt:{en:"attraction",he:"אטרקציות"}
+    },
+    transportation:{
+        i:'fas fa-bus',
+        l:"transprtation",
+        txt:{en:"transprtation",he:"תחבורה"}
+    },
+    COVID:{
+        i:"fas fa-user-md",
+        l:"covid-test",
+        txt:{en:"covid-test",he:"בדיקות קורונה"}
+    },
+    travelGuides:{
+        i:'fas fa-compass',
+        l:"travel-guides",
+        txt:{en:"travel-guides",he:"מדריך טיולים"}
+    }
 }
+
 export const Info = {
     "en":{
         no_info:"No info",

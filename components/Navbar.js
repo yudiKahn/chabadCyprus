@@ -71,16 +71,16 @@ function Navbar({lang, setLang}) {
                                 </div>
                                 <div className={`col ${lang==='he'?'':'text-right'}`}>
                                     <a href="https://www.facebook.com/chabadofnapa" target="_blank" rel="noreferrer">
-                                        <i className="btn btn-blue fa m-1 fa-facebook"></i>
+                                        <i className="btn btn-blue fab m-1 fa-facebook-f"></i>
                                     </a>
                                     <a href="https://www.instagram.com/chabad_ayia_napa/" target="_blank" rel="noreferrer">
-                                        <i className="btn btn-blue fa m-1 fa-instagram"></i>
+                                        <i className="btn btn-blue fab m-1 fa-instagram"></i>
                                     </a>
                                     <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=+35796640980&text=Hello">
-                                        <i className="btn btn-blue fa m-1 fa-whatsapp"></i>
+                                        <i className="btn btn-blue m-1 fab fa-whatsapp"></i>
                                     </a>
                                     <Link href="/Admin">
-                                        <a className="btn btn-blue fa m-1 fa-user-circle-o"></a>
+                                        <a className="btn btn-blue m-1 fas fa-user-lock"></a>
                                     </Link>
                                 </div>
                             </div>
