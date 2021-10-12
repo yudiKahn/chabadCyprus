@@ -1,14 +1,15 @@
 import React from 'react'
 import {useRouter} from 'next/router';
 import { ImgTop, Card } from '../../components';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import {Info as text, infoCateg} from '../../assets/text';
 import Link from 'next/link';
 
-function Category() {
-    const catEn = useRouter().query.category;
-    const category = Object.values(infoCateg).find(v=>v.txt.en === catEn);
-    const {lang} = useSelector(s=>({lang:s.lang}));
+function Category({lang}) {
+    const router = useRouter();
+    const catEn = router.query.category;
+    console.log(catEn);
+    const category = Object.values(infoCateg).find(v=>v.txt.en === catEn) || {txt:""};
 
     return (<>
         <ImgTop title={`${text[lang].title}/${category.txt[lang]}`}/>
@@ -32,4 +33,4 @@ function Category() {
     </>)
 }
 
-export default Category;
+export default connect(s=>({lang:s.lang}))(Category);
