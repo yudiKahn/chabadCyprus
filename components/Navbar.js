@@ -6,8 +6,9 @@ import { connect } from 'react-redux';
 
 function Navbar({lang, setLang}) {
     const toggleClass = e => {
-        let btn = e.nativeEvent.path.find(el=>Array.from(el.classList).indexOf('navbar-toggler')>-1);
-        Array.from(btn.classList).indexOf('click') < 0 ? btn.classList+=' click' : btn.classList.remove('click');
+        // let target = document.querySelector(e.target.getAttribute('data-target'));
+        // let btn = e.nativeEvent.path.find(el=>Array.from(el.classList).indexOf('navbar-toggler')>-1);
+        // Array.from(target.classList).indexOf('show') > -1 ? btn.classList+=' click' : btn.classList.remove('click');
     }
 
     return (<header id="header">

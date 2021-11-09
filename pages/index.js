@@ -11,7 +11,7 @@ function Home({lang}) {
                 <span style={lang==='he'?{textAlign:'end'}:{}}>
                     <h1>{text[lang].welcome}</h1>
                     <a className="btn btn-fill-blue mx-1" target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=+35796640980&text=Hello">
-                        <i className="fa fa-whatsapp"></i>
+                        <i className="fab fa-whatsapp"></i>
                     </a>
                     <a className="btn btn-fill-blue mx-1" target="_blank" rel="noreferrer" href="mailto:ayianapa@chabadcyprus.com">
                         <i className="fa fa-envelope"></i>
@@ -62,7 +62,7 @@ function Home({lang}) {
         <section className="contact row mx-0 justify-content-center">
             <div className="col" style={{ minWidth: 300, maxWidth: 300 }}>
                 <div className="row mx-0">
-                    <i className="fa fa-4x fa-map-marker col-3"></i>
+                    <i className="fa fa-4x fa-map-marker-alt col-3"></i>
                     <span className="col-9">
                         <h4 style={{fontSize:23, fontWeight:'bold'}}>{text[lang]["info-row"].location[0]}</h4>
                         <p style={{fontSize:13}}>{text[lang]["info-row"].location[1]}</p>
@@ -80,7 +80,7 @@ function Home({lang}) {
             </div>
             <div className="col" style={{ minWidth: 300, maxWidth: 300 }}>
                 <div className="row mx-0">
-                    <i className="fa fa-4x fa-clock-o col-3"></i>
+                    <i className="fa fa-4x fa-clock col-3"></i>
                     <span className="col-9">
                         <h4 style={{fontSize:23, fontWeight:'bold'}}>{text[lang]["info-row"].hours[0]}</h4>
                         <p style={{fontSize:13}}>{text[lang]["info-row"].hours[1]}</p>

@@ -12,10 +12,9 @@ function Item({lang}) {
 
     return (<>
         <ImgTop title={{en:"Info",he:"מידע"}[lang]}/>
-        <div className="container">
-            <div className="row mx-0 my-3">
-                
-                <div className="col mb-3" style={{minWidth:400}}>
+        <div className="container py-3 text-center">
+            <div className="row mx-0 my-2">
+                <div className="col mb-3" style={{width:'50%',maxWidth:500, minWidth:250}}>
                     <h1 className={lang=='he'?'text-right':''}>{item?.title[lang]}</h1>
                     <p className={lang=='he'?'text-right':''}>
                         {item?.categories?.map((v,i)=> <i key={i} className={`${v.i} btn btn-blue mx-2 my-1`}></i>)}
@@ -25,7 +24,7 @@ function Item({lang}) {
                         {item?.text[lang]}
                     </p> 
                 </div>
-                <div className="col text-center mb-3" style={{minWidth:400}}>
+                <div className="col text-center mb-3" style={{width:'50%',maxWidth:500, minWidth:250}}>
                     <img
                         src={item?.imgUrl}
                         alt="item"
@@ -34,6 +33,10 @@ function Item({lang}) {
                 </div>
             </div>
         </div>
+            {/* <div className="row mx-0 my-3">
+                
+                
+            </div> */}
     </>)
 }
 
