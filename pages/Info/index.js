@@ -7,7 +7,7 @@ import Link from 'next/link';
 function Info({lang}) {
 
     return (<>
-        <ImgTop title={text[lang].title}/>
+        <ImgTop title={{en:"Info",he:"מידע"}[lang]}/>
         <div className="container py-3 text-center" style={{maxWidth:1050}}>
         {
             Object.values(categories).map((v,i)=> <Link href={`/Info/${v.txt.en}`} key={i}>

@@ -7,7 +7,16 @@ function Hotels({lang}) {
         <ImgTop title={text[lang].title}/>
         <div className="container py-3">
             <div className="row mx-0"  style={{placeContent:'center'}}>
-            {text[lang].items.map((v,i)=> <Card key={i} title={v.title} link={v.link} img={v.img}/>)}
+            {text[lang].items.map((v,i)=> 
+                <Card 
+                    key={i}
+                    title={<>
+                    {v.title}
+                    <br/>
+                    <small style={{fontSize:15}}>★★★★★</small>
+                    </>}
+                    link={v.link}
+                    img={v.img}/>)}
             </div>
         </div>
     </>)

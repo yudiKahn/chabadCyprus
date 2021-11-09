@@ -132,6 +132,12 @@
     cursor: pointer;
   }
   /*I*/
+  .item-image{
+    max-width: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px black;
+  }
   .info-icon{
     box-shadow: 0px 0px 40px -10px rgba(168, 168, 168, 0.5);
     max-width: 200px; min-width: 200px;

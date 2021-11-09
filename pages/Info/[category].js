@@ -8,25 +8,22 @@ import Link from 'next/link';
 function Category({lang}) {
     const router = useRouter();
     const catEn = router.query.category;
-    console.log(catEn);
-    const category = Object.values(infoCateg).find(v=>v.txt.en === catEn) || {txt:""};
 
     return (<>
-        <ImgTop title={`${text[lang].title}/${category.txt[lang]}`}/>
-        <div className="px-5 py-4 d-flex flex-row-reverse">
+        <ImgTop title={`${{en:"Info",he:"מידע"}[lang]}`}/>
+        {/* <div className="px-5 py-4 d-flex flex-row-reverse">
             <Link href="/Info">
                 <a className="fas fa-arrow-right fa-2x" style={{textDecoration:'none'}}></a>
             </Link>
-        </div>
+        </div> */}
         <div className="row mx-0"  style={{placeContent:'center'}}>
             { 
-            text[lang].items.map((v,i)=> Array.from(v.categories).find(v=> v.l === category.l) &&
+            text.map((v)=> (Array.from(v.categories).find(v=>v.l == catEn) || catEn === "all") &&
                 <Card 
-                    key={i} 
-                    title={v.title} 
-                    text={<b style={{cursor:'pointer'}} onClick={()=>null}>{text[lang].more_info}</b>} 
-                    img={v.img} 
-                    link={v.link}
+                    key={v.id} 
+                    title={v.title[lang]} 
+                    img={v.imgUrl} 
+                    link={`/Info/item?id=${v.id}`}
                 />)
             }
         </div>
