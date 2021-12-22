@@ -247,16 +247,6 @@
     z-index: 10000;
   }
   /*S*/
-  .shabbat-head-img{
-    width: 100%;
-    height: 150px;
-    /* https://images.squarespace-cdn.com/content/v1/5f18474e111f1c29da62258f/1597852695013-G6YZR8M48IM92IGTMP1V/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Friday+Night.jpg*/
-    background-image: url('https://i.pinimg.com/736x/c1/5c/ba/c15cbae66a8a930a1cb292aaf60bb815--triangle-art-simple-pattern.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-  }
   .shabbat-sel{
     box-shadow: 0px 0px 40px -10px rgba(168, 168, 168, 0.5);
     max-width: 400px;
