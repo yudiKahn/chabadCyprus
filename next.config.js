@@ -10,5 +10,8 @@ module.exports = {
       messagingSenderId: "989479064837",
       appId: "1:989479064837:web:8677fff3a0bc0d8432936c",
       measurementId: "G-B9GNZH7VRC"
+    },
+    output: {
+      hashFunction: "xxhash64"
     }
 }
